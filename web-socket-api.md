@@ -292,7 +292,7 @@ Here are some common status codes that you might encounter:
     Please use query methods to confirm the status.
     You might also want to establish a new WebSocket connection for that.
 
-See [Error codes for Binance](errors.md) for a list of error codes and messages.
+See [Error codes for Binance](return) for a list of error codes and messages.
 
 # Rate limits
 

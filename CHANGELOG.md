@@ -142,7 +142,7 @@ General Changes:
 * Requests for all OCO now correctly return results in **ascending order** when `startTime` or `fromId` are specified. This affects the following requests:
     * REST API: `GET /api/v3/allOrderList`
     * WebSocket API: `allOrderLists`
-* Fixed a bug where order query requests would incorrectly return [`-2026 ORDER_ARCHIVED`](./errors.md#-2026-order_archived) error for newly placed orders.
+* Fixed a bug where order query requests would incorrectly return [`-2026 ORDER_ARCHIVED`](./return#-2026-order_archived) error for newly placed orders.
     * REST API: `GET /api/v3/order`
     * WebSocket API: `order.status`
 

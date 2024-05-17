@@ -129,7 +129,7 @@ SBE 的 [FAQ](./faqs/sbe_faq_cn.md) 已经更新。
 * 现在，当指定`startTime`或`fromId`时，请求查询所有 OCO 订单会正确返回**升序**的结果。这会影响以下请求：
     * REST API: `GET /api/v3/allOrderList`
     * WebSocket API: `allOrderLists`
-* 修复了一个错误。订单查询请求不再会对新下的订单错误返回[`-2026 ORDER_ARCHIVED`](./errors.md#-2026-order_archived)错误。
+* 修复了一个错误。订单查询请求不再会对新下的订单错误返回[`-2026 ORDER_ARCHIVED`](./return#-2026-order_archived)错误。
     * REST API: `GET /api/v3/order`
     * WebSocket API: `order.status`
 

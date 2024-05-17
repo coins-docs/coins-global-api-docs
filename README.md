@@ -6,7 +6,7 @@
 
 Name | Description
 ------------ | ------------
-[errors.md](./errors.md)    | Error codes and messages of Spot API
+[return.md](./return)    | Return codes and messages of Spot API
 [filters.md](./filters.md)  | Details on the filters used by Spot API
 [rest-api.md](./rest-api.md)                      | Spot REST API (`/api`)
 [web-socket-api.md](./web-socket-api.md)          | Spot WebSocket API

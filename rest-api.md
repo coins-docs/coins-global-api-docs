@@ -109,11 +109,14 @@
 Sample Payload below:
 ```javascript
 {
-  "code": -1121,
-  "msg": "Invalid symbol."
+  "sysCd":"00000000",
+          "sysMsg":"OK"
+  "biz":{
+    "bizCd":"00000000", "bizMsg":"OK", "data":{"the real data"}
+  }
 }
 ```
-* Specific error codes and messages are defined in [Errors Codes](./errors.md).
+* Specific error codes and messages are defined in [Return Codes](./return).
 
 ## General Information on Endpoints
 * For `GET` endpoints, parameters must be sent as a `query string`.

@@ -13,3 +13,11 @@ C
 user-data-stream.md,9/1/911cb37ec8a46fbab4e11786b0877299bcb59f89
 ;
 rest-api.md,d/f/df0b8253bc9d78d1af75a459d9c1b19bf8df3fb1
+<
+README_CN.md,e/5/e5d21eab4d20c09c696b47580a44d3129de24154
+>
+rest-api_CN.md,a/9/a9ea0163d564bd6ede7fbcbf96bd8060dfcd316e
+=
+filters_CN.md,8/c/8cb58db9ec3d8b5dcc97ef8c53e483e2b625dff9
+E
+web-socket-streams.md,2/f/2fe8e6c908aaf38a732817e51243fcc38308529e

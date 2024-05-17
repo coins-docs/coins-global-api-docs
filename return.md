@@ -17,7 +17,7 @@ The format for the successful system return code is 00000000. The composition ru
 | Platform             | ES00 |
 | Payment institutions | IS09 |
 
-#### system return code(this is only an example, not all of them)
+#### system return code(this is only an example, not all of them. Please add code whenever you need it)
 | return code          | explain |
 |----------------------|---------|
 | ES001001             | Internal error; unable to process your request. Please try again.     |
@@ -30,7 +30,7 @@ The format for the successful business return code is 00000000. The composition 
 | Platform             | EB00 |
 | Payment institutions | IB09 |
 
-#### business return code(this is only an example, not all of them)
+#### business return code(this is only an example, not all of them. Please add code whenever you need it)
 | return code | explain |
 |-------------|---------|
 | EB001001    | Insufficient balance  |
