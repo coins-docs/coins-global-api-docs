@@ -4,12 +4,14 @@ Return info consist of three parts: an system error code, a system message and b
 ```javascript
 {
  "sysCd":"00000000",
-         "sysMsg":"OK"
- "biz":{
-  "bizCd":"00000000", "bizMsg":"OK", "data":{
-   "serverTime": 1499827319559
-  }
- }
+  "sysMsg":"OK"
+  "biz":{
+      "bizCd":"00000000", 
+       "bizMsg":"OK",
+       "data":{
+           "serverTime": 1499827319559
+        }
+    }
 }
 ```
 The format for the successful system return code is 00000000. The composition rule for unsuccessful system return codes is a 4-digit assignor+system code (variable digits).Among them, the encoding values of the three assigned values are as follows:
