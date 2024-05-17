@@ -4,7 +4,7 @@
 
   - [General API Information](#general-api-information)
   - [HTTP Return Codes](#http-return-codes)
-  - [Return Codes](#error-codes)
+  - [Return Codes](#return-codes)
   - [General Information on Endpoints](#general-information-on-endpoints)
 - [LIMITS](#limits)
   - [General Info on Limits](#general-info-on-limits)
