@@ -116,7 +116,7 @@ Sample Payload below:
   }
 }
 ```
-* Specific error codes and messages are defined in [Return Codes](./return).
+* Specific error codes and messages are defined in [Return Codes](./return.md).
 
 ## General Information on Endpoints
 * For `GET` endpoints, parameters must be sent as a `query string`.
