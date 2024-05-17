@@ -104,14 +104,14 @@ Sample Payload below:
 ```javascript
 {
   "sysCd":"00000000",
-          "sysMsg":"OK"
+  "sysMsg":"OK"
   "biz":{
-    "bizCd":"00000000",
-            "bizMsg":"OK",
-            "data":{
-      "serverTime": 1499827319559
-    }
-  }
+      "bizCd":"00000000",
+      "bizMsg":"OK",
+      "data":{
+           "serverTime": 1499827319559
+       }
+   }
 }
 ```
 * Specific return codes and messages are defined in [Return Codes](./return.md).
