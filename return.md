@@ -3,7 +3,7 @@ Return info consist of three parts: an system error code, a system message and b
  but messages can vary. Here is the return JSON payload:
 ```javascript
 {
- "sysCd":"00000000",
+  "sysCd":"00000000",
   "sysMsg":"OK"
   "biz":{
       "bizCd":"00000000", 
