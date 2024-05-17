@@ -106,7 +106,9 @@ Sample Payload below:
   "sysCd":"00000000",
           "sysMsg":"OK"
   "biz":{
-    "bizCd":"00000000", "bizMsg":"OK", "data":{
+    "bizCd":"00000000",
+            "bizMsg":"OK",
+            "data":{
       "serverTime": 1499827319559
     }
   }
