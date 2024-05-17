@@ -7,10 +7,10 @@ Return info consist of three parts: an system error code, a system message and b
   "sysMsg":"OK"
   "biz":{
       "bizCd":"00000000", 
-       "bizMsg":"OK",
-       "data":{
-           "serverTime": 1499827319559
-        }
+      "bizMsg":"OK",
+      "data":{
+          "serverTime": 1499827319559
+       }
     }
 }
 ```
