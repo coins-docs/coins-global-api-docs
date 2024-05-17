@@ -4,7 +4,7 @@
 
   - [General API Information](#general-api-information)
   - [HTTP Return Codes](#http-return-codes)
-  - [Error Codes](#error-codes)
+  - [Return Codes](#error-codes)
   - [General Information on Endpoints](#general-information-on-endpoints)
 - [LIMITS](#limits)
   - [General Info on Limits](#general-info-on-limits)
@@ -103,7 +103,7 @@
   **UNKNOWN** and could have been a success.
 
 
-## Error Codes
+## Return Codes
 * Any endpoint can return an ERROR
 
 Sample Payload below:
