@@ -1,6 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+**Table of Contents**
 
   - [General API Information](#general-api-information)
   - [HTTP Return Codes](#http-return-codes)
@@ -79,13 +79,7 @@
 
 ## General API Information
 * The following base endpoints are available. Please use whichever works best for your setup:
-  * **https://api.binance.com**
-  * **https://api-gcp.binance.com**
-  * **https://api1.binance.com**
-  * **https://api2.binance.com**
-  * **https://api3.binance.com**
-  * **https://api4.binance.com**
-* The last 4 endpoints in the point above (`api1`-`api4`) might give better performance but have less stability. 
+  * **https://please fill in the right url ** 
 * All endpoints return either a JSON object or array.
 * Data is returned in **ascending** order. Oldest first, newest last.
 * All time and timestamp related fields are in **milliseconds**.
@@ -104,7 +98,7 @@
 
 
 ## Return Codes
-* Any endpoint can return an ERROR
+* Any endpoint can return an error or successful response.
 
 Sample Payload below:
 ```javascript
@@ -112,11 +106,13 @@ Sample Payload below:
   "sysCd":"00000000",
           "sysMsg":"OK"
   "biz":{
-    "bizCd":"00000000", "bizMsg":"OK", "data":{"the real data"}
+    "bizCd":"00000000", "bizMsg":"OK", "data":{
+      "serverTime": 1499827319559
+    }
   }
 }
 ```
-* Specific error codes and messages are defined in [Return Codes](./return.md).
+* Specific return codes and messages are defined in [Return Codes](./return.md).
 
 ## General Information on Endpoints
 * For `GET` endpoints, parameters must be sent as a `query string`.
