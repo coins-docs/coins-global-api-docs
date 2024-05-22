@@ -39,7 +39,7 @@
 
 ## 接口的基本信息
 * `GET` 方法的接口, 参数必须在 `query string`中发送。
-* `POST`, `PUT`, 和 `DELETE` 方法的接口,参数可以在内容形式为`application/x-www-form-urlencoded`的 `query string` 中发送，也可以在 `request body` 中发送。 如果你喜欢，也可以混合这两种方式发送参数。
+* `POST`, `PUT`, 和 `DELETE` 方法的接口,参数可以在内容形式为`application/json`的 `query string` 中发送，也可以在 `request body` 中发送。 如果你喜欢，也可以混合这两种方式发送参数。
 * 对参数的顺序不做要求。
 * 但如果同一个参数名在`query string`和`request body`中都有，`query string`中的会被优先采用。
 
