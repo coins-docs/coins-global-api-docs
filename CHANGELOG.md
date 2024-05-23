@@ -376,7 +376,7 @@ Rest API
     * New field `uid` that shows the User Id/Account will appear in the response.
 * Changes to `GET /api/v3/historicalTrades`:
     * Changed security type from `MARKET_DATA` to `NONE`.
-    * This means that the `X-COINS-APIKE` header is no longer necessary and is now ignored.
+    * This means that the `X-COINS-APIKEY` header is no longer necessary and is now ignored.
 
 Websocket API
 
