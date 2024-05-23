@@ -356,7 +356,7 @@ Rest API
     * 返回数据中添加用户ID的新字段 `uid`。
 * `GET /api/v3/historicalTrades` 变动：
     * 鉴权类型从 `MARKET_DATA` 变更为 `NONE`。
-    * 不需要设置 `X-MBX-APIKEY` 到请求的header中。
+    * 不需要设置 `X-COINS-APIKE` 到请求的header中。
 
 Websocket API
 
