@@ -388,8 +388,8 @@ User Data Stream
 
 ## X
 
-`X-MBX-ORDER-COUNT-XX`
+`X-COINS-ORDER-COUNT-XX`
 * 请求的返回Header里面一个自定义值, 用来表明当前用户下单限制额的所剩额度。
 
-`X-MBX-USED-WEIGHT-XX`
+`X-COINS-USED-WEIGHT-XX`
 * 请求的返回Header里面一个自定义值, 用来表明当前IP在一定时间内所剩的请求额度。

@@ -1324,9 +1324,9 @@ REST API
     * MINUTE => M
     * HOUR => H
     * DAY => D
-* New Headers `X-MBX-USED-WEIGHT-(intervalNum)(intervalLetter)` will give your current used request weight for the (intervalNum)(intervalLetter) rate limiter. For example, if there is a one minute request rate weight limiter set, you will get a `X-MBX-USED-WEIGHT-1M` header in the response. The legacy header `X-MBX-USED-WEIGHT` will still be returned and will represent the current used weight for the one minute request rate weight limit.
-* New Header `X-MBX-ORDER-COUNT-(intervalNum)(intervalLetter)`that is updated on any valid order placement and tracks your current order count for the interval; rejected/unsuccessful orders are not guaranteed to have `X-MBX-ORDER-COUNT-**` headers in the response.
-    * Eg. `X-MBX-ORDER-COUNT-1S` for "orders per 1 second" and `X-MBX-ORDER-COUNT-1D` for orders per "one day"
+* New Headers `X-COINS-USED-WEIGHT-(intervalNum)(intervalLetter)` will give your current used request weight for the (intervalNum)(intervalLetter) rate limiter. For example, if there is a one minute request rate weight limiter set, you will get a `X-COINS-USED-WEIGHT-1M` header in the response. The legacy header `X-COINS-USED-WEIGHT` will still be returned and will represent the current used weight for the one minute request rate weight limit.
+* New Header `X-COINS-ORDER-COUNT-(intervalNum)(intervalLetter)`that is updated on any valid order placement and tracks your current order count for the interval; rejected/unsuccessful orders are not guaranteed to have `X-COINS-ORDER-COUNT-**` headers in the response.
+    * Eg. `X-COINS-ORDER-COUNT-1S` for "orders per 1 second" and `X-COINS-ORDER-COUNT-1D` for orders per "one day"
 * GET api/v1/depth now supports `limit` 5000 and 10000; weights are 50 and 100 respectively.
 * GET api/v1/exchangeInfo has a new parameter `ocoAllowed`.
 
@@ -1353,7 +1353,7 @@ NEW -2011 ERRORS
 ## 2019-03-12
 
 REST API 
-* X-MBX-USED-WEIGHT header added to Rest API responses.
+* X-COINS-USED-WEIGHT header added to Rest API responses.
 * Retry-After header added to Rest API 418 and 429 responses.
 * When canceling the Rest API can now return `errorCode` -1013 OR -2011 if the symbol's `status` isn't `TRADING`.
 * `api/v1/depth` no longer has the ignored and empty `[]`.

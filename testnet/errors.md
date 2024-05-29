@@ -150,10 +150,10 @@ Errors consist of two parts: an error code and a message. Codes are universal,
  * Symbol is present multiple times in the list.
 
 #### -1152 INVALID_SBE_HEADER
-* Invalid `X-MBX-SBE` header; expected `<SCHEMA_ID>:<VERSION>`.
+* Invalid `X-COINS-SBE` header; expected `<SCHEMA_ID>:<VERSION>`.
 
 #### -1153 UNSUPPORTED_SCHEMA_ID
-* Unsupported SBE schema ID or version specified in the `X-MBX-SBE` header.
+* Unsupported SBE schema ID or version specified in the `X-COINS-SBE` header.
 
 #### -1155 SBE_DISABLED
 * SBE is not enabled.

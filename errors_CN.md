@@ -147,10 +147,10 @@
  * Symbol is present multiple times in the list.
 
  #### -1152 无效的SBE报文头部
-* Invalid `X-MBX-SBE` header; expected `<SCHEMA_ID>:<VERSION>`.
+* Invalid `X-COINS-SBE` header; expected `<SCHEMA_ID>:<VERSION>`.
 
 #### -1153 不支持的SCHEMA_ID
-* Unsupported SBE schema ID or version specified in the `X-MBX-SBE` header.
+* Unsupported SBE schema ID or version specified in the `X-COINS-SBE` header.
 
 #### -1155 SBE 没有开启
 * SBE is not enabled.

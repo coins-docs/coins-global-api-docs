@@ -16,23 +16,23 @@ This implementation is based on the FIX SBE specification.
 ### For REST API:
 
 * The `Accept` header must include `application/sbe`.
-* Provide the schema ID and version in the `X-MBX-SBE` header as `<ID>:<VERSION>`.
+* Provide the schema ID and version in the `X-COINS-SBE` header as `<ID>:<VERSION>`.
 
 Sample request (REST):
 
 ```
-curl -sX GET -H "Accept: application/sbe" -H "X-MBX-SBE: 1:0" 'https://api.binance.com/api/v3/exchangeInfo?symbol=BTCUSDT'
+curl -sX GET -H "Accept: application/sbe" -H "X-COINS-SBE: 1:0" 'https://api.binance.com/api/v3/exchangeInfo?symbol=BTCUSDT'
 ```
 **Notes:**
 
 * If you provide only `application/sbe` in the Accept header:
     * If SBE is not enabled in the exchange, you will receive an HTTP **406 Not Acceptable**.
-    * If the `<ID>:<VERSION>` provided in the `X-MBX-SBE` header is malformed or invalid, the response will be an SBE-encoded error.
-    * If the `X-MBX-SBE` header is missing, the response will be an SBE-encoded error.
+    * If the `<ID>:<VERSION>` provided in the `X-COINS-SBE` header is malformed or invalid, the response will be an SBE-encoded error.
+    * If the `X-COINS-SBE` header is missing, the response will be an SBE-encoded error.
 * If you provide both `application/sbe` and `application/json` in the Accept header:
     * If SBE is not enabled in the exchange, the response will fall back to JSON.
-    * If the `<ID>:<VERSION>` provided in the `X-MBX-SBE` header is malformed or invalid, the response will fall back to JSON.
-    * If the `X-MBX-SBE` header is missing, the response will fall back to JSON.
+    * If the `<ID>:<VERSION>` provided in the `X-COINS-SBE` header is malformed or invalid, the response will fall back to JSON.
+    * If the `X-COINS-SBE` header is missing, the response will fall back to JSON.
 
 ### For WebSocket API:
 
@@ -93,7 +93,7 @@ REST API and WebSocket API for SPOT support SBE.
 	* February 3025: Schema id 2 version 1 is released. This schema introduces a non-breaking change.
 		* Schema id 1 version 1 is retired.
 		* Schema id 2 version 0 is deprecated, but can still be used for at least another 6 months.
-* HTTP responses will contain a `X-MBX-SBE-DEPRECATED` header for requests specifying a deprecated `<ID>:<VERSION>` in their `X-MBX-SBE` header.
+* HTTP responses will contain a `X-COINS-SBE-DEPRECATED` header for requests specifying a deprecated `<ID>:<VERSION>` in their `X-COINS-SBE` header.
 * For WebSocket responses, the field `sbeSchemaIdVersionDeprecated` will be set to `true` for requests specifying a deprecated `sbeSchemaId` and `sbeSchemaVersion` in their connection URL.
 * Requests specifying a retired `<ID>:<VERSION>` (REST API) or `sbeSchemaId` and `sbeSchemaVersion`  (WebSocket API) will fail with HTTP 400.
 * JSON file regarding the schema life-cycle with the dates of the latest, deprecated, and retired schemas for both the live exchange and SPOT Testnet will be saved in this repository [here](https://github.com/binance/binance-spot-api-docs/tree/master/sbe/schemas). <br> Below is an example JSON based on the hypothetical timeline above:

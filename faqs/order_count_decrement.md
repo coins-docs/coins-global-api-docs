@@ -5,11 +5,11 @@ To reward efficient traders on the Spot market, we have upgraded the order count
 When any order is filled for the first time (partially or fully), the order count will be decremented by 1 for the current 10-second and 24-hour order count windows. The net effect is that any (partially or fully) filled orders will not count towards the 10-second or 24-hour order limits.
 
 ## How it works in detail:
-Order placement requests (e.g. `POST /api/v3/order`) return the `X-MBX-ORDER-COUNT-24H` header which indicates how many orders have been placed in the current 24-hour UTC time window.
-Below is an example of orders being placed and the `X-MBX-ORDER-COUNT-24H` header value:
+Order placement requests (e.g. `POST /api/v3/order`) return the `X-COINS-ORDER-COUNT-24H` header which indicates how many orders have been placed in the current 24-hour UTC time window.
+Below is an example of orders being placed and the `X-COINS-ORDER-COUNT-24H` header value:
 
 
-|Time| Action                       | X-MBX-ORDER-COUNT-24H|
+|Time| Action                       | X-COINS-ORDER-COUNT-24H|
 |--- | ---                          | ----                 |
 |T1  | Place LIMIT Order A          | 1 (LIMIT Order A counted) |
 |T2  | Place LIMIT Order B          | 2 (LIMIT Order B counted) |

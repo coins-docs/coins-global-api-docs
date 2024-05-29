@@ -16,24 +16,24 @@ SBE 是一种用于实现低延迟的序列化格式。
 ### REST API:
 
 * `Accept` 报文头必须包含 `application/sbe`。
-* 在 `X-MBX-SBE` 报文头中以 `<ID>:<VERSION>` 的形式提供 `schema ID` 和 `version`。
+* 在 `X-COINS-SBE` 报文头中以 `<ID>:<VERSION>` 的形式提供 `schema ID` 和 `version`。
 
 样本请求(REST):
 
 ```
-curl -sX GET -H "Accept: application/sbe" -H "X-MBX-SBE: 1:0" 'https://api.binance.com/api/v3/exchangeInfo?symbol=BTCUSDT'
+curl -sX GET -H "Accept: application/sbe" -H "X-COINS-SBE: 1:0" 'https://api.binance.com/api/v3/exchangeInfo?symbol=BTCUSDT'
 ```
 
 **注意：**
 
 * 如果你只在 `Accept` 报文头中提供了 `application/sbe`
   	* 如果交易所不支持 `SBE`，你将收到一个**406 不可接受**的响应。
-	* 如果在 `X-MBX-SBE` 报文头中提供的 XML 模式是属于格式错误或不正确的情况，那你得到的响应将会是一个 `SBE` 解码错误。
-	* 如果 `X-MBX-SBE` 报文头缺失，那你得到的响应将会是一个 `SBE` 解码错误。
+	* 如果在 `X-COINS-SBE` 报文头中提供的 XML 模式是属于格式错误或不正确的情况，那你得到的响应将会是一个 `SBE` 解码错误。
+	* 如果 `X-COINS-SBE` 报文头缺失，那你得到的响应将会是一个 `SBE` 解码错误。
 * 如果你在 `Accept` 报文头中同时提供了 `application/sbe` 和 `application/json`：
   	* 如果交易所不支持 `SBE`，那么响应将会被回退到 `JSON`。
-	* 如果在 `X-MBX-SBE` 报文头中提供的 XML 模式是属于格式错误或不正确的情况，那么响应将会被回退到 `JSON`。
-	* 如果 `X-MBX-SBE` 报文头缺失，那么响应将会被回退到 `JSON`。	
+	* 如果在 `X-COINS-SBE` 报文头中提供的 XML 模式是属于格式错误或不正确的情况，那么响应将会被回退到 `JSON`。
+	* 如果 `X-COINS-SBE` 报文头缺失，那么响应将会被回退到 `JSON`。	
 
 
 ### WebSocket API:
@@ -96,7 +96,7 @@ response=$(echo $request | websocat -n1 'wss://ws-api.binance.com:443/ws-api/v3?
 	* 3025年2月：发布模式id 2 版本 1。这个模式引入了一个非破坏性的变化。
 		* 模式 id 1 version 1 已被停用。
 		* 模式 id 2 version 0 此时已被废止，但还可以再被使用至少另外6个月。
-* HTTP将在针对 `X-MBX-SBE header` 中已被废止的 `SBE` 模式版本请求的响应中包含一个 `X-MBX-SBE-DEPRECATED` 报文头 。
+* HTTP将在针对 `X-COINS-SBE header` 中已被废止的 `SBE` 模式版本请求的响应中包含一个 `X-COINS-SBE-DEPRECATED` 报文头 。
 * 对于WebSocket响应，如果在其连接URL中指定了已弃用的`sbeSchemaId`和`sbeSchemaVersion`，`sbeSchemaIdVersionDeprecated`字段将被设置为`true`。
 * 指定已废止的`<ID>:<VERSION>`（REST API）或`sbeSchemaId`和`sbeSchemaVersion` （WebSocket API）的请求将会返回HTTP 400错误。
 * 关于模式生命周期的 `JSON` 文件将被保存在此仓库中，[请看这里](https://github.com/binance/binance-spot-api-docs/tree/master/sbe/schemas)。这个文件包含了关于实时交易所和现货测试网的最新、被废止和被停用模式的具体发生日期。<br> 以下是一个基于上述假设时间线的 `JSON` 示例：

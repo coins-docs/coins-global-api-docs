@@ -392,9 +392,9 @@ User Data Stream
 
 ## X
 
-`X-MBX-ORDER-COUNT-XX`
+`X-COINS-ORDER-COUNT-XX`
 * Response header that is emitted when a user places an order, indicating the current order count for the interval XX for that account.
 
-`X-MBX-USED-WEIGHT-XX`
+`X-COINS-USED-WEIGHT-XX`
 * Response header that is emitted when a user sends any request to the API, indicating the current used request weight for the XX interval by the user's IP.
 

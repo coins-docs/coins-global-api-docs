@@ -54,7 +54,7 @@
 * 违反任何一个速率限制时（访问频次限制或下单速率限制），将返回429。
 
 ## IP 访问限制
-* 每个请求将包含一个`X-MBX-USED-WEIGHT-(intervalNum)(intervalLetter)`的头，其中包含当前IP所有请求的已使用权重。
+* 每个请求将包含一个`X-COINS-USED-WEIGHT-(intervalNum)(intervalLetter)`的头，其中包含当前IP所有请求的已使用权重。
 * 每一个接口均有一个相应的权重(weight)，有的接口根据参数不同可能拥有不同的权重。越消耗资源的接口权重就会越大。
 * 收到429时，您有责任停止发送请求，不得滥用API。
 * **收到429后仍然继续违反访问限制，会被封禁IP，并收到418错误码**
@@ -63,7 +63,7 @@
 * **访问限制是基于IP的，而不是API Key**
 
 ## 下单频率限制
-* 每个成功的下单回报将包含一个`X-MBX-ORDER-COUNT-(intervalNum)(intervalLetter)`的头，其中包含当前账户已用的下单限制数量。
+* 每个成功的下单回报将包含一个`X-COINS-ORDER-COUNT-(intervalNum)(intervalLetter)`的头，其中包含当前账户已用的下单限制数量。
 * 当下单数超过限制时，会收到带有429但不含`Retry-After`头的响应。请检查 `GET api/v3/exchangeInfo` 的下单频率限制 (rateLimitType = ORDERS) 并等待封禁时间结束。
 * 被拒绝或不成功的下单并不保证回报中包含以上头内容。
 * **下单频率限制是基于每个账户计数的。**
