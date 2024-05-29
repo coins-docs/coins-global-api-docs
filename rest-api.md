@@ -117,7 +117,7 @@ Sample Payload below:
 * Specific return codes and messages are defined in [Return Codes](./return.md).
 
 ## General Information on Endpoints
-* Every http request should add a header name 'X-COINS-TRACE-ID'. When the coins.xyz sends a request, it will always contain the value. When the coins.xyz was called, it will try to acquire the value. The same request should maintain the same value.
+* Every http request should add a header name 'X-COINS-TRACE-ID'. When the coins.xyz sends a request, it will always contain the value. When the coins.xyz was called, it will try to acquire the value. The same request should maintain the same value. The value should start with the partner ID (e.g. coins.br), and end with UUID. 
 * For `GET` endpoints, parameters must be sent as a `query string`.
 * For `POST`, `PUT`, and `DELETE` endpoints, the parameters may be sent as a
   `query string` or in the `request body` with content type
