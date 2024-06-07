@@ -75,7 +75,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Public Rest API for Binance (2023-04-02)
+# Public Rest API for COINS.XYZ (2024-06-07)
 
 ## General API Information
 * The following base endpoints are available. Please use whichever works best for your setup:
@@ -92,7 +92,7 @@
 * HTTP `409` return code is used when a cancelReplace order partially succeeds. (i.e. if the cancellation of the order fails but the new order placement succeeds.)
 * HTTP `429` return code is used when breaking a request rate limit.
 * HTTP `418` return code is used when an IP has been auto-banned for continuing to send requests after receiving `429` codes.
-* HTTP `5XX` return codes are used for internal errors; the issue is on Binance's side.
+* HTTP `5XX` return codes are used for internal errors; the issue is on COINS's side.
   It is important to **NOT** treat this as a failure operation; the execution status is
   **UNKNOWN** and could have been a success.
 
@@ -3533,7 +3533,7 @@ Database
 
 
 ## User data stream endpoints
-Specifics on how user data streams work can be found [here.](https://github.com/binance/binance-spot-api-docs/blob/master/user-data-stream.md)
+Specifics on how user data streams work can be found [here.](https://github.com/coins-docs/coins-global-api-docs/blob/master/user-data-stream.md)
 
 ### Start user data stream (USER_STREAM)
 ```

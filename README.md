@@ -1,5 +1,5 @@
 # Official Documentation for the Binance APIs and Streams.
-* Official Announcements regarding changes, downtime, etc. to the API and Streams will be reported here: **https://t.me/binance_api_announcements**
+* Official Announcements regarding changes, downtime, etc. to the API and Streams will be reported here: **https://t.me/coins_xyz_api_announcements**
 * Streams, endpoints, parameters, payloads, etc. described in the documents in this repository are considered **official** and **supported**.
 * The use of any other streams, endpoints, parameters, or payloads, etc. is **not supported**; **use them at your own risk and with no guarantees.**
 
@@ -42,20 +42,20 @@ Please refer to [CHANGELOG](./CHANGELOG.md) for latest changes on our APIs (both
 
 # Useful Resources
 
-* [Postman Collections](https://github.com/binance/binance-api-postman)
+* [Postman Collections](https://github.com/coins-docs/coins-api-postman)
     * Postman collections are available, and they are recommended for new users seeking a quick and easy start with the API.
 * Connectors
     * The following are lightweight libraries that work as connectors to the Binance public API, written in different languages:
-        * [Python](https://github.com/binance/binance-connector-python)
-        * [Node.js](https://github.com/binance/binance-connector-node)
-        * [Ruby](https://github.com/binance/binance-connector-ruby)
-        * [DotNET C#](https://github.com/binance/binance-connector-dotnet)
-        * [Java](https://github.com/binance/binance-connector-java)
-        * [Rust](https://github.com/binance/binance-spot-connector-rust)
-        * [PHP](https://github.com/binance/binance-connector-php)
-        * [Go](https://github.com/binance/binance-connector-go)
-        * [TypeScript](https://github.com/binance/binance-connector-typescript)
-* [Swagger](https://github.com/binance/binance-api-swagger)
+        * [Python](https://github.com/coins-docs/coins-connector-python)
+        * ~[Node.js](https://github.com/coins-docs/coins-connector-node)~
+        * ~[Ruby](https://github.com/coins-docs/coins-connector-ruby)~
+        * ~[DotNET C#](https://github.com/coins-docs/coins-connector-dotnet)~
+        * ~[Java](https://github.com/coins-docs/coins-connector-java)~
+        * ~[Rust](https://github.com/coins-docs/coins-spot-connector-rust)~
+        * ~[PHP](https://github.com/coins-docs/coins-connector-php)~
+        * ~[Go](https://github.com/coins-docs/coins-connector-go)~
+        * ~[TypeScript](https://github.com/coins-docs/coins-connector-typescript)~
+* [Swagger](https://github.com/coins-docs/coins-api-swagger)
     * A YAML file with OpenAPI specification for the RESTful API is available, along with a Swagger UI page for reference.
 * [Spot Testnet](https://testnet.binance.vision/)
     * Users can use the SPOT Testnet to practice SPOT trading.
