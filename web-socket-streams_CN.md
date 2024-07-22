@@ -1,18 +1,18 @@
 
 # Web Socket 行情接口(2023-12-04)
 # 基本信息
-* 本篇所列出的所有wss接口的baseurl为: **wss://stream.binance.com:9443** 或者 **wss://stream.binance.com:443**
+* 本篇所列出的所有wss接口的baseurl为: **wss://stream.coins.com:9443** 或者 **wss://stream.coins.com:443**
 * 所有stream均可以直接访问，或者作为组合streams的一部分。
 * 直接访问时URL格式为 **/ws/\<streamName\>**
 * 组合streams的URL格式为 **/stream?streams=\<streamName1\>/\<streamName2\>/\<streamName3\>**
 * 订阅组合streams时，事件payload会以这样的格式封装 **{"stream":"\<streamName\>","data":\<rawPayload\>}**
 * stream名称中所有交易对均为**小写**
-* 每个到**stream.binance.com**的链接有效期不超过24小时，请妥善处理断线重连。
+* 每个到**stream.coins.com**的链接有效期不超过24小时，请妥善处理断线重连。
 * Websocket 服务器每3分钟发送Ping消息。
     * 如果Websocket服务器在10分钟之内没有收到Pong消息应答，连接会被断开。
     * 当客户收到ping消息，必需尽快回复pong消息，同时payload需要和ping消息一致。
     * 未经请求的pong消息是被允许的，但是不会保证连接不断开。**对于这些pong消息，建议payload为空**
-* **wss://data-stream.binance.vision** 可以用来订阅仅有市场信息的数据流。账户信息**无法**从此URL获得。
+* **wss://data-stream.coins.vision** 可以用来订阅仅有市场信息的数据流。账户信息**无法**从此URL获得。
 
 ## WebSocket 连接限制
 
@@ -531,9 +531,9 @@ m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月
 
 
 ## 如何正确在本地维护一个orderbook副本
-1. 订阅 **wss://stream.binance.com:9443/ws/bnbbtc@depth**
+1. 订阅 **wss://stream.coins.com:9443/ws/bnbbtc@depth**
 2. 开始缓存收到的更新。同一个价位，后收到的更新覆盖前面的。
-3. 访问Rest接口 **https://api.binance.com/api/v3/depth?symbol=BNBBTC&limit=1000** 获得一个1000档的深度快照
+3. 访问Rest接口 **https://api.coins.com/api/v3/depth?symbol=BNBBTC&limit=1000** 获得一个1000档的深度快照
 4. 将目前缓存到的信息中`u`小于步骤3中获取到的快照中的`lastUpdateId`的部分丢弃(丢弃更早的信息，已经过期)。
 5. 将深度快照中的内容更新到本地orderbook副本中，并从websocket接收到的第一个`U` <= `lastUpdateId`+1 **且** `u` >= `lastUpdateId`+1 的event开始继续更新本地副本。
 6. 每一个新event的`U`应该恰好等于上一个event的`u`+1，否则可能出现了丢包，请从step3重新进行初始化。

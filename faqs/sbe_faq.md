@@ -21,7 +21,7 @@ This implementation is based on the FIX SBE specification.
 Sample request (REST):
 
 ```
-curl -sX GET -H "Accept: application/sbe" -H "X-COINS-SBE: 1:0" 'https://api.binance.com/api/v3/exchangeInfo?symbol=BTCUSDT'
+curl -sX GET -H "Accept: application/sbe" -H "X-COINS-SBE: 1:0" 'https://api.coins.com/api/v3/exchangeInfo?symbol=BTCUSDT'
 ```
 **Notes:**
 
@@ -52,7 +52,7 @@ request=$( jq -n \
         --argjson params "$params" \
         '{id: $id, method: $method, params: $params}' )
 
-response=$(echo $request | websocat -n1 'wss://ws-api.binance.com:443/ws-api/v3?responseFormat=sbe&sbeSchemaId=1&sbeSchemaVersion=0')
+response=$(echo $request | websocat -n1 'wss://ws-api.coins.com:443/ws-api/v3?responseFormat=sbe&sbeSchemaId=1&sbeSchemaVersion=0')
 ```
 
 **Notes:**
@@ -72,7 +72,7 @@ REST API and WebSocket API for SPOT support SBE.
 
 ## SBE Schema
 
-* The schema to use both for the live exchange and SPOT Testnet will be saved in this repository [here](https://github.com/binance/binance-spot-api-docs/tree/master/sbe/schemas). 
+* The schema to use both for the live exchange and SPOT Testnet will be saved in this repository [here](https://github.com/coins/coins-spot-api-docs/tree/master/sbe/schemas). 
 * Any updates to the schema will be noted in the [CHANGELOG](../CHANGELOG.md). 
 
 **Regarding Legacy support:**
@@ -96,7 +96,7 @@ REST API and WebSocket API for SPOT support SBE.
 * HTTP responses will contain a `X-COINS-SBE-DEPRECATED` header for requests specifying a deprecated `<ID>:<VERSION>` in their `X-COINS-SBE` header.
 * For WebSocket responses, the field `sbeSchemaIdVersionDeprecated` will be set to `true` for requests specifying a deprecated `sbeSchemaId` and `sbeSchemaVersion` in their connection URL.
 * Requests specifying a retired `<ID>:<VERSION>` (REST API) or `sbeSchemaId` and `sbeSchemaVersion`  (WebSocket API) will fail with HTTP 400.
-* JSON file regarding the schema life-cycle with the dates of the latest, deprecated, and retired schemas for both the live exchange and SPOT Testnet will be saved in this repository [here](https://github.com/binance/binance-spot-api-docs/tree/master/sbe/schemas). <br> Below is an example JSON based on the hypothetical timeline above:
+* JSON file regarding the schema life-cycle with the dates of the latest, deprecated, and retired schemas for both the live exchange and SPOT Testnet will be saved in this repository [here](https://github.com/coins/coins-spot-api-docs/tree/master/sbe/schemas). <br> Below is an example JSON based on the hypothetical timeline above:
 
 ```json
 {
@@ -137,14 +137,14 @@ REST API and WebSocket API for SPOT support SBE.
 
 1. Download the schema:
     * [`spot_prod_latest.xml`](../sbe/schemas/spot_prod_latest.xml) for the live exchange.
-    * [`spot_testnet_latest.xml`](../sbe/schemas/spot_testnet_latest.xml) for [SPOT Testnet](https://testnet.binance.vision).
+    * [`spot_testnet_latest.xml`](../sbe/schemas/spot_testnet_latest.xml) for [SPOT Testnet](https://testnet.coins.vision).
 2. Clone and build [`simple-binary-encoding`](https://github.com/real-logic/simple-binary-encoding):
 ```shell
  $ git clone https://github.com/real-logic/simple-binary-encoding.git
  $ cd simple-binary-encoding
  $ ./gradlew
 ```
-3. Run the SbeTool code generator. (Here are samples for [Java](https://github.com/binance/binance-sbe-java-sample-app), [C++](https://github.com/binance/binance-sbe-cpp-sample-app) and [Rust](https://github.com/binance/binance-sbe-rust-sample-app) decoding the payload from Exchange Information.)
+3. Run the SbeTool code generator. (Here are samples for [Java](https://github.com/coins/coins-sbe-java-sample-app), [C++](https://github.com/coins/coins-sbe-cpp-sample-app) and [Rust](https://github.com/coins/coins-sbe-rust-sample-app) decoding the payload from Exchange Information.)
 
 ### Decimal field encoding
 

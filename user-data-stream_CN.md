@@ -1,12 +1,12 @@
 # WebSocket 账户接口(2024-04-02)
 
 # 基本信息
-* 本篇所列出API接口的base url : **https://api.binance.com**
+* 本篇所列出API接口的base url : **https://api.coins.com**
 * 用于订阅账户数据的 `listenKey` 从创建时刻起有效期为60分钟
 * 可以通过 `PUT` 一个 `listenKey` 延长60分钟有效期
 * 可以通过`DELETE`一个 `listenKey` 立即关闭当前数据流，并使该`listenKey` 无效
 * 在具有有效`listenKey`的帐户上执行`POST`将返回当前有效的`listenKey`并将其有效期延长60分钟
-* websocket接口的baseurl: **wss://stream.binance.com:9443**
+* websocket接口的baseurl: **wss://stream.coins.com:9443**
 * U订阅账户数据流的stream名称为 **/ws/\<listenKey\>** 或 **/stream?streams=\<listenKey\>**
 * 每个链接有效期不超过24小时，请妥善处理断线重连。
 * 账户数据流的消息不保证严格时间序; **请使用 E 字段进行排序**

@@ -1,4 +1,4 @@
-# Official Documentation for the Binance APIs and Streams.
+# Official Documentation for the coins APIs and Streams.
 * Official Announcements regarding changes, downtime, etc. to the API and Streams will be reported here: **https://t.me/coins_xyz_api_announcements**
 * Streams, endpoints, parameters, payloads, etc. described in the documents in this repository are considered **official** and **supported**.
 * The use of any other streams, endpoints, parameters, or payloads, etc. is **not supported**; **use them at your own risk and with no guarantees.**
@@ -15,12 +15,12 @@ Name | Description
 [sbe_schemas](./sbe/schemas/)   | Spot Simple Binary Encoding (SBE) schemas
 [testnet](./testnet/)           | API docs for features available only on SPOT Testnet
 &#x0020; |
-[Wallet, Sub-account](https://binance-docs.github.io/apidocs/spot/en) | Details on Wallet and sub-accounts endpoints(`/sapi`)
-[Margin, BLVT](https://binance-docs.github.io/apidocs/spot/en) | Details on Margin and BLVT endpoints(`/sapi`)
-[Mining](https://binance-docs.github.io/apidocs/spot/en) | Details on Mining endpoints(`/sapi`)
-[BSwap, Savings](https://binance-docs.github.io/apidocs/spot/en) | Details on BSwap and Savings endpoints(`/sapi`)
-[USDT-M Futures](https://binance-docs.github.io/apidocs/futures/en/)  | Details on USDT-M Futures API (`/fapi`)
-[COIN-M Futures](https://binance-docs.github.io/apidocs/delivery/en/) | Details on COIN-M Futures API (`/dapi`)
+[Wallet, Sub-account](https://coins-docs.github.io/apidocs/spot/en) | Details on Wallet and sub-accounts endpoints(`/sapi`)
+[Margin, BLVT](https://coins-docs.github.io/apidocs/spot/en) | Details on Margin and BLVT endpoints(`/sapi`)
+[Mining](https://coins-docs.github.io/apidocs/spot/en) | Details on Mining endpoints(`/sapi`)
+[BSwap, Savings](https://coins-docs.github.io/apidocs/spot/en) | Details on BSwap and Savings endpoints(`/sapi`)
+[USDT-M Futures](https://coins-docs.github.io/apidocs/futures/en/)  | Details on USDT-M Futures API (`/fapi`)
+[COIN-M Futures](https://coins-docs.github.io/apidocs/delivery/en/) | Details on COIN-M Futures API (`/dapi`)
 
 # FAQ
 
@@ -45,7 +45,7 @@ Please refer to [CHANGELOG](./CHANGELOG.md) for latest changes on our APIs (both
 * [Postman Collections](https://github.com/coins-docs/coins-api-postman)
     * Postman collections are available, and they are recommended for new users seeking a quick and easy start with the API.
 * Connectors
-    * The following are lightweight libraries that work as connectors to the Binance public API, written in different languages:
+    * The following are lightweight libraries that work as connectors to the coins public API, written in different languages:
         * [Python](https://github.com/coins-docs/coins-connector-python)
         * ~[Node.js](https://github.com/coins-docs/coins-connector-node)~
         * ~[Ruby](https://github.com/coins-docs/coins-connector-ruby)~
@@ -57,17 +57,17 @@ Please refer to [CHANGELOG](./CHANGELOG.md) for latest changes on our APIs (both
         * ~[TypeScript](https://github.com/coins-docs/coins-connector-typescript)~
 * [Swagger](https://github.com/coins-docs/coins-api-swagger)
     * A YAML file with OpenAPI specification for the RESTful API is available, along with a Swagger UI page for reference.
-* [Spot Testnet](https://testnet.binance.vision/)
+* [Spot Testnet](https://testnet.coins.vision/)
     * Users can use the SPOT Testnet to practice SPOT trading.
     * Currently, this is only available via the API.
     * Only endpoints starting with `/api/*` are supported, `/sapi/*` is not supported.
 
 # Contact Us
 
-* [Binance API Telegram Group](https://t.me/binance_api_english)
+* [coins API Telegram Group](https://t.me/coins_api_english)
     * For any questions regarding sudden drop in performance with the API and/or Websockets.
     * For any general questions about the API not covered in the documentation.
-* [Binance Developers](https://dev.binance.vision/)
+* [coins Developers](https://dev.coins.vision/)
     * For any questions/help regarding code implementation with API and/or Websockets.
-* [Binance Customer Support](https://www.binance.com/en/support-center)
+* [coins Customer Support](https://www.coins.com/en/support-center)
     * For cases such as missing funds, help with 2FA, etc.

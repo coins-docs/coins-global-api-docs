@@ -17,16 +17,16 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# User Data Streams for Binance Spot TESTNET(2024-03-13)
+# User Data Streams for coins Spot TESTNET(2024-03-13)
 # General WSS information
-* The base API endpoint is: **https://testnet.binance.vision/**
+* The base API endpoint is: **https://testnet.coins.vision/**
 * A User Data Stream `listenKey` is valid for 60 minutes after creation.
 * Doing a `PUT` on an active `listenKey` will extend its validity for 60 minutes.
 * Doing a `DELETE` on an active `listenKey` will close the stream and invalidate the `listenKey`.
 * Doing a `POST` on an account with an active `listenKey` will return the currently active `listenKey` and extend its validity for 60 minutes.
-* The base websocket endpoint is: **wss://stream.binance.com:9443**
+* The base websocket endpoint is: **wss://stream.coins.com:9443**
 * User Data Streams are accessed at **/ws/\<listenKey\>** or **/stream?streams=\<listenKey\>**
-* A single connection to **stream.binance.com** is only valid for 24 hours; expect to be disconnected at the 24 hour mark
+* A single connection to **stream.coins.com** is only valid for 24 hours; expect to be disconnected at the 24 hour mark
 
 # API Endpoints
 ## Create a listenKey (USER_STREAM)

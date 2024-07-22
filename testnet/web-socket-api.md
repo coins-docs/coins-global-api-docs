@@ -83,11 +83,11 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Public WebSocket API for Binance SPOT Testnet (2024-04-04)
+# Public WebSocket API for coins SPOT Testnet (2024-04-04)
 
 ## General API Information
 
-* The base endpoint is: **`wss://testnet.binance.vision/ws-api/v3`**
+* The base endpoint is: **`wss://testnet.coins.vision/ws-api/v3`**
   * If you experience issues with the standard 443 port, alternative port 9443 is also available.
 * A single connection to the API is only valid for 24 hours; expect to be disconnected after the 24-hour mark.
 * Websocket server will send a `ping frame` every 3 minutes. 
@@ -287,13 +287,13 @@ Here are some common status codes that you might encounter:
   * `409` – your request partially failed but also partially succeeded, see `error` for details.
   * `418` – you have been auto-banned for repeated violation of rate limits.
   * `429` – you have exceeded API request rate limit, please slow down.
-* `5XX` status codes indicate internal errors; the issue is on Binance's side.
+* `5XX` status codes indicate internal errors; the issue is on coins's side.
   * **Important:** If a response contains 5xx status code, it **does not** necessarily mean that your request has failed.
     Execution status is _unknown_ and the request might have actually succeeded.
     Please use query methods to confirm the status.
     You might also want to establish a new WebSocket connection for that.
 
-See [Error codes for Binance](errors.md) for a list of error codes and messages.
+See [Error codes for coins](errors.md) for a list of error codes and messages.
 
 # Rate limits
 
@@ -397,7 +397,7 @@ the `rateLimits` field can be omitted from responses to reduce their size.
   use `returnRateLimits` parameter in the query string instead:
 
   ```
-  wss://ws-api.binance.com:443/ws-api/v3?returnRateLimits=false
+  wss://ws-api.coins.com:443/ws-api/v3?returnRateLimits=false
   ```
 
   This will make all requests made through this connection behave as if you have passed `"returnRateLimits": false`.
@@ -544,9 +544,9 @@ Security type | API key  | Signature | Description
 `USER_STREAM` | required |           | Managing User Data Stream subscriptions
 
 * Secure methods require a valid API key to be specified and authenticated.
-  * API keys can be created on the [API Management](https://www.binance.com/en/support/faq/360002502072) page of your Binance account.
+  * API keys can be created on the [API Management](https://www.coins.com/en/support/faq/360002502072) page of your coins account.
   * **Both API key and secret key are sensitive.** Never share them with anyone.
-    If you notice unusual activity in your account, immediately revoke all the keys and contact Binance support.
+    If you notice unusual activity in your account, immediately revoke all the keys and contact coins support.
 * API keys can be configured to allow access only to certain types of secure methods.
   * For example, you can have an API key with `TRADE` permission for trading,
     while using a separate API key with `USER_DATA` permission to monitor your order status.
@@ -854,7 +854,7 @@ request = {
     'params': params
 }
 
-ws = create_connection("wss://ws-api.binance.com:443/ws-api/v3")
+ws = create_connection("wss://ws-api.coins.com:443/ws-api/v3")
 ws.send(json.dumps(request))
 result =  ws.recv()
 ws.close()
@@ -1124,7 +1124,7 @@ Memory
       }
     ],
     // Exchange filters are explained on the "Filters" page:
-    // https://github.com/binance/binance-spot-api-docs/blob/master/filters.md
+    // https://github.com/coins/coins-spot-api-docs/blob/master/filters.md
     // All exchange filters are optional.
     "exchangeFilters": [],
     "symbols": [
@@ -1154,7 +1154,7 @@ Memory
         "isSpotTradingAllowed": true,
         "isMarginTradingAllowed": true,
         // Symbol filters are explained on the "Filters" page:
-        // https://github.com/binance/binance-spot-api-docs/blob/master/filters.md
+        // https://github.com/coins/coins-spot-api-docs/blob/master/filters.md
         // All symbol filters are optional.
         "filters": [
           {
@@ -1466,7 +1466,7 @@ If you need access to real-time trading activity, please consider using WebSocke
 * [`<symbol>@aggTrade`](web-socket-streams.md#aggregate-trade-streams)
 
 If you need historical aggregate trade data,
-please consider using [data.binance.vision](https://github.com/binance/binance-public-data/#aggtrades).
+please consider using [data.coins.vision](https://github.com/coins/coins-public-data/#aggtrades).
 
 **Weight:**
 2
@@ -1549,7 +1549,7 @@ If you need access to real-time kline updates, please consider using WebSocket S
 * [`<symbol>@kline_<interval>`](web-socket-streams.md#klinecandlestick-streams)
 
 If you need historical kline data,
-please consider using [data.binance.vision](https://github.com/binance/binance-public-data/#klines).
+please consider using [data.coins.vision](https://github.com/coins/coins-public-data/#klines).
 
 **Weight:**
 2
@@ -6359,7 +6359,7 @@ Database
 
 The following requests manage [User Data Stream](user-data-stream.md) subscriptions.
 
-**Note:** The user data can ONLY be retrieved by *a separate* Websocket connection via the **User Data Streams** url (i.e. `wss://stream.binance.com:443`).
+**Note:** The user data can ONLY be retrieved by *a separate* Websocket connection via the **User Data Streams** url (i.e. `wss://stream.coins.com:443`).
 
 ### Start user data stream (USER_STREAM)
 

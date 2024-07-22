@@ -77,10 +77,10 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Public Rest API for Binance SPOT Testnet (2024-04-04)
+# Public Rest API for coins SPOT Testnet (2024-04-04)
 
 ## General API Information
-* The base endpoint is **https://testnet.binance.vision/api**
+* The base endpoint is **https://testnet.coins.vision/api**
 * All endpoints return either a JSON object or array.
 * Data is returned in **ascending** order. Oldest first, newest last.
 * All time and timestamp related fields are in **milliseconds**.
@@ -92,7 +92,7 @@
 * HTTP `409` return code is used when a cancelReplace order partially succeeds. (i.e. if the cancellation of the order fails but the new order placement succeeds.)
 * HTTP `429` return code is used when breaking a request rate limit.
 * HTTP `418` return code is used when an IP has been auto-banned for continuing to send requests after receiving `429` codes.
-* HTTP `5XX` return codes are used for internal errors; the issue is on Binance's side.
+* HTTP `5XX` return codes are used for internal errors; the issue is on coins's side.
   It is important to **NOT** treat this as a failure operation; the execution status is
   **UNKNOWN** and could have been a success.
 
@@ -247,7 +247,7 @@ Parameter | Value
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "X-COINS-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.binance.com/api/v3/order' -d 'symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71'
+    [linux]$ curl -H "X-COINS-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.coins.com/api/v3/order' -d 'symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71'
     ```
 
 #### Example 2: As a query string
@@ -264,7 +264,7 @@ Parameter | Value
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "X-COINS-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.binance.com/api/v3/order?symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71'
+    [linux]$ curl -H "X-COINS-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.coins.com/api/v3/order?symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71'
     ```
 
 #### Example 3: Mixed query string and request body
@@ -282,7 +282,7 @@ Parameter | Value
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "X-COINS-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.binance.com/api/v3/order?symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC' -d 'quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=0fd168b8ddb4876a0358a8d14d0c9f3da0e9b20c5d52b2a00fcf7d1c602f9a77'
+    [linux]$ curl -H "X-COINS-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.coins.com/api/v3/order?symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC' -d 'quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=0fd168b8ddb4876a0358a8d14d0c9f3da0e9b20c5d52b2a00fcf7d1c602f9a77'
     ```
 
 Note that the signature is different in example 3.
@@ -348,7 +348,7 @@ HZ8HOjiJ1s%2FigS9JA%2Bn7%2B7Ti%2FihtkRF5BIWcPIEluJP6tlbFM%2FBf44LfZka%2FiemtahZA
 5. The curl command:
 
 ```console
-curl -H "X-COINS-APIKEY: CAvIjXy3F44yW6Pou5k8Dy1swsYDWJZLeoK2r8G4cFDnE9nosRppc2eKc1T8TRTQ" -X POST 'https://api.binance.com/api/v3/order?symbol=BTCUSDT&side=SELL&type=LIMIT&timeInForce=GTC&quantity=1&price=0.2&timestamp=1668481559918&recvWindow=5000&signature=HZ8HOjiJ1s%2FigS9JA%2Bn7%2B7Ti%2FihtkRF5BIWcPIEluJP6tlbFM%2FBf44LfZka%2FiemtahZAZzcO9TnI5uaXh3%2B%2BlrqtNonCwp6%2F245UFWkiW1elpgtVAmJPbogcAv6rSlokztAfWk296ZJXzRDYAtzGH0gq7CgSJKfH%2BXxaCmR0WcvlKjNQnp12%2FeKXJYO4tDap8UCBLuyxDnR7oJKLHQHJLP0r0EAVOOSIbrFang%2F1WOq%2BJaq4Efc4XpnTgnwlBbWTmhWDR1pvS9iVEzcSYLHT%2FfNnMRxFc7u%2Bj3qI%2F%2F5yuGuu14KR0MuQKKCSpViieD%2BfIti46sxPTsjSemoUKp0oXA%3D%3D'
+curl -H "X-COINS-APIKEY: CAvIjXy3F44yW6Pou5k8Dy1swsYDWJZLeoK2r8G4cFDnE9nosRppc2eKc1T8TRTQ" -X POST 'https://api.coins.com/api/v3/order?symbol=BTCUSDT&side=SELL&type=LIMIT&timeInForce=GTC&quantity=1&price=0.2&timestamp=1668481559918&recvWindow=5000&signature=HZ8HOjiJ1s%2FigS9JA%2Bn7%2B7Ti%2FihtkRF5BIWcPIEluJP6tlbFM%2FBf44LfZka%2FiemtahZAZzcO9TnI5uaXh3%2B%2BlrqtNonCwp6%2F245UFWkiW1elpgtVAmJPbogcAv6rSlokztAfWk296ZJXzRDYAtzGH0gq7CgSJKfH%2BXxaCmR0WcvlKjNQnp12%2FeKXJYO4tDap8UCBLuyxDnR7oJKLHQHJLP0r0EAVOOSIbrFang%2F1WOq%2BJaq4Efc4XpnTgnwlBbWTmhWDR1pvS9iVEzcSYLHT%2FfNnMRxFc7u%2Bj3qI%2F%2F5yuGuu14KR0MuQKKCSpViieD%2BfIti46sxPTsjSemoUKp0oXA%3D%3D'
 ```
 
 A sample Bash script below does the similar steps said above.
@@ -368,7 +368,7 @@ signature=$(echo -n "$api_params_with_timestamp" \
             | openssl enc -base64 -A)
 # Send the request:
 curl -H "X-COINS-APIKEY: $API_KEY" -X "$API_METHOD" \
-    "https://api.binance.com/$API_CALL?$api_params_with_timestamp" \
+    "https://api.coins.com/$API_CALL?$api_params_with_timestamp" \
     --data-urlencode "signature=$signature"
 ```
 
@@ -431,7 +431,7 @@ headers = {
     'X-COINS-APIKEY': API_KEY,
 }
 response = requests.post(
-    'https://api.binance.com/api/v3/order',
+    'https://api.coins.com/api/v3/order',
     headers=headers,
     data=params,
 )
@@ -504,10 +504,10 @@ There are 4 possible options:
 
 |Options|Example|
 ----- | ----|
-|No parameter|curl -X GET "https://api.binance.com/api/v3/exchangeInfo"|
-|symbol|curl -X GET "https://api.binance.com/api/v3/exchangeInfo?symbol=BNBBTC"|
-|symbols| curl -X GET "https://api.binance.com/api/v3/exchangeInfo?symbols=%5B%22BNBBTC%22,%22BTCUSDT%22%5D" <br/> or <br/> curl -g -X  GET 'https://api.binance.com/api/v3/exchangeInfo?symbols=["BTCUSDT","BNBBTC"]' |
-|permissions| curl -X GET "https://api.binance.com/api/v3/exchangeInfo?permissions=SPOT" <br/> or <br/> curl -X GET "https://api.binance.com/api/v3/exchangeInfo?permissions=%5B%22MARGIN%22%2C%22LEVERAGED%22%5D" <br/> or <br/> curl -g -X GET 'https://api.binance.com/api/v3/exchangeInfo?permissions=["MARGIN","LEVERAGED"]' |
+|No parameter|curl -X GET "https://api.coins.com/api/v3/exchangeInfo"|
+|symbol|curl -X GET "https://api.coins.com/api/v3/exchangeInfo?symbol=BNBBTC"|
+|symbols| curl -X GET "https://api.coins.com/api/v3/exchangeInfo?symbols=%5B%22BNBBTC%22,%22BTCUSDT%22%5D" <br/> or <br/> curl -g -X  GET 'https://api.coins.com/api/v3/exchangeInfo?symbols=["BTCUSDT","BNBBTC"]' |
+|permissions| curl -X GET "https://api.coins.com/api/v3/exchangeInfo?permissions=SPOT" <br/> or <br/> curl -X GET "https://api.coins.com/api/v3/exchangeInfo?permissions=%5B%22MARGIN%22%2C%22LEVERAGED%22%5D" <br/> or <br/> curl -g -X GET 'https://api.coins.com/api/v3/exchangeInfo?permissions=["MARGIN","LEVERAGED"]' |
 
 **Notes**:
 * If the value provided to `symbol` or `symbols` do not exist, the endpoint will throw an error saying the symbol is invalid.
@@ -3539,7 +3539,7 @@ Database
 
 
 ## User data stream endpoints
-Specifics on how user data streams work can be found [here.](https://github.com/binance/binance-spot-api-docs/blob/master/user-data-stream.md)
+Specifics on how user data streams work can be found [here.](https://github.com/coins/coins-spot-api-docs/blob/master/user-data-stream.md)
 
 ### Start user data stream (USER_STREAM)
 ```

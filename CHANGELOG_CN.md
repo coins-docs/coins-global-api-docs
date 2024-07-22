@@ -21,7 +21,7 @@ WebSocket API
 
 SBE
 
-* 已发布新模式 2:0 [Spot_2_0.xml](https://github.com/binance/binance-spot-api-docs/blob/master/sbe/schemas/spot_2_0.xml)。 当前模式 1:0 [spot_1_0.xml](https://github.com/binance/binance-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml) 将被弃用，并从根据我们模式弃用政策，会将在 6 个月内下线。
+* 已发布新模式 2:0 [Spot_2_0.xml](https://github.com/coins/coins-spot-api-docs/blob/master/sbe/schemas/spot_2_0.xml)。 当前模式 1:0 [spot_1_0.xml](https://github.com/coins/coins-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml) 将被弃用，并从根据我们模式弃用政策，会将在 6 个月内下线。
 * 在 REST API 或 WebSocket API 上使用模式 1:0 时，消息 `ExchangeInfoResponse` 中的组"权限"将始终为空。在升级到模式 2:0后， 您才可以在 `permissionSets` 组中查找权限信息。
 * 最新模式仍将支持已弃用的 OCO 请求。
 * 请注意，在模式 2:0 实际发布之前尝试使用它会导致错误。
@@ -71,7 +71,7 @@ WebSocket API
 
 SBE
 
-* 已发布新模式 2:0 [Spot_2_0.xml](https://github.com/binance/binance-spot-api-docs/blob/master/sbe/schemas/spot_2_0.xml)。 当前模式 1:0 [spot_1_0.xml](https://github.com/binance/binance-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml) 将被弃用，并从根据我们模式弃用政策，会将在 6 个月内下线。
+* 已发布新模式 2:0 [Spot_2_0.xml](https://github.com/coins/coins-spot-api-docs/blob/master/sbe/schemas/spot_2_0.xml)。 当前模式 1:0 [spot_1_0.xml](https://github.com/coins/coins-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml) 将被弃用，并从根据我们模式弃用政策，会将在 6 个月内下线。
 * 在 REST API 或 WebSocket API 上使用模式 1:0 时，消息 `ExchangeInfoResponse` 中的组"权限"将始终为空。在升级到模式 2:0后， 您才可以在 `permissionSets` 组中查找权限信息。
 * 最新模式仍将支持已弃用的 OCO 请求。
 * 请注意，在模式 2:0 实际发布之前尝试使用它会导致错误。
@@ -88,13 +88,13 @@ SBE
 
 ## 2024-02-08
 
-现货的 WebSocket API 现在在[测试网](https://testnet.binance.vision)上支持简单二进制编码(SBE)。
+现货的 WebSocket API 现在在[测试网](https://testnet.coins.vision)上支持简单二进制编码(SBE)。
 
 SBE 模式已经更新了 WebSocket API 元数据，但并没有增加 `schemaId` 或者 `version`。
 
-* 仅在 REST API 上使用 SBE 的用户可以继续使用 SBE 模式 [`128b94b2591944a536ae427626b795000100cf1d`](https://github.com/binance/binance-spot-api-docs/blob/128b94b2591944a536ae427626b795000100cf1d/sbe/schemas/spot_1_0.xml)，或者更新到新提交的 SBE 模式。
+* 仅在 REST API 上使用 SBE 的用户可以继续使用 SBE 模式 [`128b94b2591944a536ae427626b795000100cf1d`](https://github.com/coins/coins-spot-api-docs/blob/128b94b2591944a536ae427626b795000100cf1d/sbe/schemas/spot_1_0.xml)，或者更新到新提交的 SBE 模式。
 
-* 希望在 WebSocket API 上使用 SBE 的用户，需要更新到[最新的 SBE 模式](https://github.com/binance/binance-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml)。
+* 希望在 WebSocket API 上使用 SBE 的用户，需要更新到[最新的 SBE 模式](https://github.com/coins/coins-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml)。
 
 SBE 的 [FAQ](./faqs/sbe_faq_cn.md) 已经更新。
 
@@ -102,7 +102,7 @@ SBE 的 [FAQ](./faqs/sbe_faq_cn.md) 已经更新。
 
 ## 2023-12-08
 
-简单二进制编码 (SBE) 已经在[现货测试网](https://testnet.binance.vision)上线。
+简单二进制编码 (SBE) 已经在[现货测试网](https://testnet.coins.vision)上线。
 生产系统会在随后支持。
 更多关于SBE的信息, 请参考[常见问题解答 (FAQ)](./faqs/sbe_faq_cn.md)
 
@@ -142,7 +142,7 @@ REST API
 * `GET /api/v3/klines` 和 `/api/v3/uiKlines` 新加可选参数 `timeZone`。
 * `POST /api/v3/order/test` 和 `POST /api/v3/sor/order/test` 新加可选参数 `computeCommissionRates`。
 * 关于发送无效接口的变动：
-    * 以前，如果查询一个不存在的端点（例如 `curl -X GET "https://api.binance.com/api/v3/exchangie"`），你会收到 HTTP 404 状态码，以及响应 "`<html><body><h2>404 Not found</h2></body></html>`"。
+    * 以前，如果查询一个不存在的端点（例如 `curl -X GET "https://api.coins.com/api/v3/exchangie"`），你会收到 HTTP 404 状态码，以及响应 "`<html><body><h2>404 Not found</h2></body></html>`"。
     * 从现在开始，只有当接受请求头中包含`text/html`时，HTML响应才会出现在这种情况下。HTTP状态码将保持不变。
 
 WebSocket API
@@ -386,7 +386,7 @@ Websocket API
 
 ## 2023-06-06
 
-* 为了提供系统的冗余能力，新加一个API接入网址: **https://api-gcp.binance.com/**
+* 为了提供系统的冗余能力，新加一个API接入网址: **https://api-gcp.coins.com/**
     * 此网址利用了 GCP (Google Cloud Platform) 的CDN，可能在性能上比`api1`-`api4`要慢。
 
 ---
@@ -394,19 +394,19 @@ Websocket API
 ## 2023-05-26
 
 **注意:** 所有更改都将逐步推出到我们的所有服务器，并可能需要一周时间才能完成。
-* 以下基本接口可能会提供比 **https://api.binance.com** 更好的性能但其稳定性略为逊色:
-  * **https://api1.binance.com**
-  * **https://api2.binance.com**
-  * **https://api3.binance.com**
-  * **https://api4.binance.com**
+* 以下基本接口可能会提供比 **https://api.coins.com** 更好的性能但其稳定性略为逊色:
+  * **https://api1.coins.com**
+  * **https://api2.coins.com**
+  * **https://api3.coins.com**
+  * **https://api4.coins.com**
 
 ---
 
 ## 2023-05-24
 
 * **以前的市场数据 URL 已不建议使用。请立即更新您的代码，以防止来自我们的服务被中断**
-    * 来自 `data.binance.com` 的 API 市场数据现在可以从 `data-api.binance.vision` 访问。
-    * 来自 `data-stream.binance.com` 的 Websocket 市场数据现在可以从 `data-stream.binance.vision` 访问。
+    * 来自 `data.coins.com` 的 API 市场数据现在可以从 `data-api.coins.vision` 访问。
+    * 来自 `data-stream.coins.com` 的 Websocket 市场数据现在可以从 `data-stream.coins.vision` 访问。
 
 ---
 
@@ -527,13 +527,13 @@ WEBSOCKET API
 
 ## 2023-01-26
 
-根据此[公告](https://www.binance.com/zh-CN/support/announcement/%E5%B9%A3%E5%AE%89%E7%8F%BE%E8%B2%A8%E6%8E%A8%E5%87%BAapi%E8%87%AA%E6%88%90%E4%BA%A4%E9%A0%90%E9%98%B2-stp-%E5%8A%9F%E8%83%BD-312fd0112fb44635b397c116e56d8f84)，Self-Trade Prevention 将在 **2023-01-26 08:00 UTC** 发布。
+根据此[公告](https://www.coins.com/zh-CN/support/announcement/%E5%B9%A3%E5%AE%89%E7%8F%BE%E8%B2%A8%E6%8E%A8%E5%87%BAapi%E8%87%AA%E6%88%90%E4%BA%A4%E9%A0%90%E9%98%B2-stp-%E5%8A%9F%E8%83%BD-312fd0112fb44635b397c116e56d8f84)，Self-Trade Prevention 将在 **2023-01-26 08:00 UTC** 发布。
 
 ---
 
 ## 2023-01-23 
 
-* 添加了新的 API 集群 https://api4.binance.com
+* 添加了新的 API 集群 https://api4.coins.com
 
 ---
 
@@ -622,7 +622,7 @@ USER DATA STREAM
 ## 2022-12-26
 
 * 现货的 Websocket API 发布到生产系统中。
-* 现货的 Websocket API 可以通过URL: `wss://ws-api.binance.com/ws-api/v3` 来访问。
+* 现货的 Websocket API 可以通过URL: `wss://ws-api.coins.com/ws-api/v3` 来访问。
 
 ---
 
@@ -663,7 +663,7 @@ Way too much request weight used; IP banned until %s Please use WebSocket Stream
 WEBSOCKET
 
 * `!bookTicker` 在 **2022-12-07** 下线。 请改用按 symbol 的最优挂单信息的数据流（`<symbol>@bookTicker`）。
-    * 可以通过一个连接订阅多个 `<symbol>@bookTicker` 数据流。 （例如`wss://stream.binance.com:9443/stream?streams=btcusdt@bookTicker/bnbbtc@bookTicker`）
+    * 可以通过一个连接订阅多个 `<symbol>@bookTicker` 数据流。 （例如`wss://stream.coins.com:9443/stream?streams=btcusdt@bookTicker/bnbbtc@bookTicker`）
 
 REST API
 
@@ -759,8 +759,8 @@ USER DATA STREAM
 
 ## 2022-12-02
 
-* 新增一个用于访问市场信息的RESTful API URL: `https://data.binance.com`.
-* 新增一个用于访问市场信息的WebSocket URL: `wss://data-stream.binance.com`.
+* 新增一个用于访问市场信息的RESTful API URL: `https://data.coins.com`.
+* 新增一个用于访问市场信息的WebSocket URL: `wss://data-stream.coins.com`.
 
 ---
 
@@ -772,7 +772,7 @@ USER DATA STREAM
 * 全市场最优挂单信息推送(`!bookTicker`)计划在**2022年11月**下线, 具体下线的时间会在后面通告.
 * 请使用按Symbol的最优挂单信息推送(`<symbol>@bookTicker`).
 * 多个 `<symbol>@bookTicker` 可以订阅在一个WebSocket连接上.
-    * 比如 `wss://stream.binance.com:9443/stream?streams=btcusdt@bookTicker/bnbbtc@bookTicker`
+    * 比如 `wss://stream.coins.com:9443/stream?streams=btcusdt@bookTicker/bnbbtc@bookTicker`
 
 ___
 
@@ -1024,7 +1024,7 @@ USER DATA STREAM
     * 此接口的权重为20
 
 ## 2021-09-14
-* 添加一个基于OpenAPI规范的RESTful API接口定义的[YAML文件](https://github.com/binance/binance-api-swagger)
+* 添加一个基于OpenAPI规范的RESTful API接口定义的[YAML文件](https://github.com/coins/coins-api-swagger)
 
 ## 2021-08-12
 * GET `api/v3/myTrades` 添加新的参数 `orderId`
@@ -1058,11 +1058,11 @@ USER DATA STREAM
 
 ## 2020-11-27
 
-为了优化性能，除了当前的`api.binance.com`，新加了一些API的集群。如果访问`api.binance.com`有性能问题，也可以尝试访问:
+为了优化性能，除了当前的`api.coins.com`，新加了一些API的集群。如果访问`api.coins.com`有性能问题，也可以尝试访问:
 
-* https://api1.binance.com/api/v3/*
-* https://api2.binance.com/api/v3/*
-* https://api3.binance.com/api/v3/*
+* https://api1.coins.com/api/v3/*
+* https://api2.coins.com/api/v3/*
+* https://api3.coins.com/api/v3/*
 
 ## 2020-09-09
 
@@ -1121,9 +1121,9 @@ REST API
   1. [对过去n分钟所有订单的数量\*价格求和] / 过去n分钟所有订单的数量
   2. 如果过去n分钟没有交易发生，则继续向前追溯，直到找到第一个交易，以此价格作为过去n分钟平均价格。
   3. 如果该交易对之前从未发生过交易，则无平均价格，亦即无法在该交易对下市价单，必须至少有一个（双方均未限价单）的交易成交后才可以下市价单。
-  4. 当前系统使用的平均价格可以通过接口 `https://api.binance.com/api/v3/avgPrice?symbol=<symbol>`查询
+  4. 当前系统使用的平均价格可以通过接口 `https://api.coins.com/api/v3/avgPrice?symbol=<symbol>`查询
      例如
-     https://api.binance.com/api/v3/avgPrice?symbol=BNBUSDT
+     https://api.coins.com/api/v3/avgPrice?symbol=BNBUSDT
 
 USER DATA STREAM
   * 成交报告中增加了 `末次成交金额` (`Y`)，等于 `末次成交量` * `末次成交价格` (`L` * `l`).

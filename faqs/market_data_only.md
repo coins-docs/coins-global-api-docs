@@ -4,7 +4,7 @@ These URLs do not require any authentication (i.e. The API key is not necessary)
 
 ## RESTful API
 
-On the RESTful API, these are the endpoints you can request on `data-api.binance.vision`: 
+On the RESTful API, these are the endpoints you can request on `data-api.coins.vision`: 
 
 * [GET /api/v3/aggTrades](../rest-api.md#compressedaggregate-trades-list)
 * [GET /api/v3/avgPrice](../rest-api.md#current-average-price)
@@ -23,12 +23,12 @@ On the RESTful API, these are the endpoints you can request on `data-api.binance
 Sample request:
 
 ```
-curl -sX GET "https://data-api.binance.vision/api/v3/exchangeInfo?symbol=BTCUSDT" 
+curl -sX GET "https://data-api.coins.vision/api/v3/exchangeInfo?symbol=BTCUSDT" 
 ```
 
 ## Websocket Streams
 
-Public market data can also be retrieved through the websocket market data using the URL `data-stream.binance.vision`.
+Public market data can also be retrieved through the websocket market data using the URL `data-stream.coins.vision`.
 The streams available through this domain are the same that can be found in the [Websocket Market Streams](../web-socket-streams.md) documentation.
 
 Note that User Data Streams **cannot** be accessed through this URL.
@@ -36,7 +36,7 @@ Note that User Data Streams **cannot** be accessed through this URL.
 Sample request:
 
 ```
-wss://data-stream.binance.vision:443/ws/btcusdt@kline_1m
+wss://data-stream.coins.vision:443/ws/btcusdt@kline_1m
 ```
 
 

@@ -1,6 +1,6 @@
 # SPOT API Glossary
 
-**Disclaimer:** This glossary refers only to the SPOT API Implementation. The definition for these terms may differ with regards to Futures, Options, and other APIs by Binance.
+**Disclaimer:** This glossary refers only to the SPOT API Implementation. The definition for these terms may differ with regards to Futures, Options, and other APIs by coins.
 
 ## A
 

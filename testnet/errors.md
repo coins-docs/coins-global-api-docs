@@ -1,4 +1,4 @@
-# Error codes for Binance SPOT Testnet (2024-04-04)
+# Error codes for coins SPOT Testnet (2024-04-04)
 Errors consist of two parts: an error code and a message. Codes are universal,
  but messages can vary. Here is an example of error JSON payload:
 

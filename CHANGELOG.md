@@ -1,4 +1,4 @@
-# CHANGELOG for Binance's API (2024-04-10)
+# CHANGELOG for coins's API (2024-04-10)
 
 ## 2024-04-10
 
@@ -21,7 +21,7 @@ WebSocket API
 
 SBE
 
-* A new schema 2:0 [spot_2_0.xml](https://github.com/binance/binance-spot-api-docs/blob/master/sbe/schemas/spot_2_0.xml) has been released. The current schema 1:0 [spot_1_0.xml](https://github.com/binance/binance-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml) will thus be deprecated, and retired from the API in 6 months as per our schema deprecation policy.
+* A new schema 2:0 [spot_2_0.xml](https://github.com/coins/coins-spot-api-docs/blob/master/sbe/schemas/spot_2_0.xml) has been released. The current schema 1:0 [spot_1_0.xml](https://github.com/coins/coins-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml) will thus be deprecated, and retired from the API in 6 months as per our schema deprecation policy.
 * When using schema 1:0 on REST API or WebSocket API, group "permissions" in message "ExchangeInfoResponse" will always be empty. Upgrade to schema 2:0 to find permission information in group "permissionSets". See General changes above for more details.
 * Deprecated OCO requests will still be supported by the latest schema.
 * Note that trying to use schema 2:0 before it is actually released will result in an error.
@@ -75,7 +75,7 @@ WebSocket API
 
 SBE
 
-* A new schema 2:0 [spot_2_0.xml](https://github.com/binance/binance-spot-api-docs/blob/master/sbe/schemas/spot_2_0.xml) has been released. The current schema 1:0 [spot_1_0.xml](https://github.com/binance/binance-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml) will thus be deprecated, and retired from the API in 6 months as per our schema deprecation policy.
+* A new schema 2:0 [spot_2_0.xml](https://github.com/coins/coins-spot-api-docs/blob/master/sbe/schemas/spot_2_0.xml) has been released. The current schema 1:0 [spot_1_0.xml](https://github.com/coins/coins-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml) will thus be deprecated, and retired from the API in 6 months as per our schema deprecation policy.
 * When using schema 1:0 on REST API or WebSocket API, group "permissions" in message "ExchangeInfoResponse" will always be empty. Upgrade to schema 2:0 to find permission information in group "permissionSets". See General changes above for more details.
 * Deprecated OCO requests will still be supported by the latest schema.
 * Note that trying to use schema 2:0 before it is actually released will result in an error.
@@ -96,13 +96,13 @@ For more information on SBE, please refer to the [FAQ](./faqs/sbe_faq.md)
 
 ## 2024-02-08
 
-The SPOT WebSocket API can now support SBE on [SPOT Testnet](https://testnet.binance.vision).
+The SPOT WebSocket API can now support SBE on [SPOT Testnet](https://testnet.coins.vision).
 
 The SBE schema has been updated with WebSocket API metadata without incrementing either `schemaId` or `version`.
 
-Users using SBE only on the REST API may continue to use the SBE schema with git commit hash [`128b94b2591944a536ae427626b795000100cf1d`](https://github.com/binance/binance-spot-api-docs/blob/128b94b2591944a536ae427626b795000100cf1d/sbe/schemas/spot_1_0.xml) or update to the newly-published SBE schema.
+Users using SBE only on the REST API may continue to use the SBE schema with git commit hash [`128b94b2591944a536ae427626b795000100cf1d`](https://github.com/coins/coins-spot-api-docs/blob/128b94b2591944a536ae427626b795000100cf1d/sbe/schemas/spot_1_0.xml) or update to the newly-published SBE schema.
 
-Users who want to use SBE on the WebSocket API must use the [newly-published SBE schema](https://github.com/binance/binance-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml).
+Users who want to use SBE on the WebSocket API must use the [newly-published SBE schema](https://github.com/coins/coins-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml).
 
 The [FAQ](./faqs/sbe_faq.md) for SBE has been updated.
 
@@ -110,7 +110,7 @@ The [FAQ](./faqs/sbe_faq.md) for SBE has been updated.
 
 ## 2023-12-08 
 
-Simple Binary Encoding (SBE) has been added to [SPOT Testnet](https://testnet.binance.vision). 
+Simple Binary Encoding (SBE) has been added to [SPOT Testnet](https://testnet.coins.vision). 
 
 This will be added to the live exchange at a later date.
 
@@ -154,7 +154,7 @@ REST API
 * `GET /api/v3/klines` and `/api/v3/uiKlines` have a new optional parameter `timeZone`.
 * `POST /api/v3/order/test` and `POST /api/v3/sor/order/test` have a new optional parameter `computeCommissionRates`.
 * Changes regarding invalid endpoints being sent:
-    * Previously, if you query an non-existing endpoint (e.g. `curl -X GET "https://api.binance.com/api/v3/exchangie`) you would get a HTTP 404 code with the response `<html><body><h2>404 Not found</h2></body></html>`
+    * Previously, if you query an non-existing endpoint (e.g. `curl -X GET "https://api.coins.com/api/v3/exchangie`) you would get a HTTP 404 code with the response `<html><body><h2>404 Not found</h2></body></html>`
     * From now on the HTML response will only appear if the Accept request header has `text/html` for this situation. The HTTP code will remain the same.
 
 WebSocket API
@@ -407,7 +407,7 @@ Websocket API
 
 ## 2023-06-06
 
-* A new endpoint is now available for redundancy: **https://api-gcp.binance.com/**
+* A new endpoint is now available for redundancy: **https://api-gcp.coins.com/**
     * This is using the GCP (Google Cloud Platform) CDN and may have slower performance compared to `api1`-`api4` endpoints.
 
 ---
@@ -416,19 +416,19 @@ Websocket API
 
 **Notice:** The change below are being rolled out, and will take approximately a week to complete.
 
-* The following base endpoints may give better performance but have less stability than **https://api.binance.com**:
-  * **https://api1.binance.com**
-  * **https://api2.binance.com**
-  * **https://api3.binance.com**
-  * **https://api4.binance.com**
+* The following base endpoints may give better performance but have less stability than **https://api.coins.com**:
+  * **https://api1.coins.com**
+  * **https://api2.coins.com**
+  * **https://api3.coins.com**
+  * **https://api4.coins.com**
 
 ---
 
 ## 2023-05-24
 
 * **The previous market data URLs have been deprecated. Please update your code immediately to prevent interruption of our services.**
-    * API Market data from `data.binance.com` can now be accessed from `data-api.binance.vision`.
-    * Websocket Market Data from `data-stream.binance.com` can now be accessed from `data-stream.binance.vision`.
+    * API Market data from `data.coins.com` can now be accessed from `data-api.coins.vision`.
+    * Websocket Market Data from `data-stream.coins.com` can now be accessed from `data-stream.coins.vision`.
 
 ---
 
@@ -550,7 +550,7 @@ Please be careful when trying to open multiple connections or reconnecting to th
 
 ## 2023-01-26
 
-As per the [announcement](https://www.binance.com/en/support/announcement/binance-spot-launches-self-trade-prevention-stp-function-on-api-312fd0112fb44635b397c116e56d8f84), Self Trade Prevention will be enabled at **2023-01-26 08:00 UTC**.
+As per the [announcement](https://www.coins.com/en/support/announcement/coins-spot-launches-self-trade-prevention-stp-function-on-api-312fd0112fb44635b397c116e56d8f84), Self Trade Prevention will be enabled at **2023-01-26 08:00 UTC**.
 
 Please refer to `GET /api/v3/exchangeInfo` from the Rest API or `exchangeInfo` from the Websocket API on the default and allowed modes.
 
@@ -560,7 +560,7 @@ Please refer to `GET /api/v3/exchangeInfo` from the Rest API or `exchangeInfo` f
 
 New API cluster has been added. Note that all endpoints are functionally equal, but may vary in performance.
 
-* https://api4.binance.com
+* https://api4.coins.com
 
 ---
 
@@ -652,7 +652,7 @@ USER DATA STREAM
 ## 2022-12-26
 
 * Spot WebSocket API is now available on the live exchange.
-* Spot Websocket API can be accessed through this URL: `wss://ws-api.binance.com/ws-api/v3`
+* Spot Websocket API can be accessed through this URL: `wss://ws-api.coins.com/ws-api/v3`
 
 ---
 
@@ -696,7 +696,7 @@ Way too much request weight used; IP banned until %s. Please use WebSocket Strea
 WEBSOCKET
 
 * `!bookTicker` will be removed by **December 7, 2022**. Please use the Individual Book Ticker Streams instead (`<symbol>@bookTicker`).
-    * Multiple `<symbol>@bookTicker` streams can be subscribed to over one connection. (E.g. `wss://stream.binance.com:9443/stream?streams=btcusdt@bookTicker/bnbbtc@bookTicker`)
+    * Multiple `<symbol>@bookTicker` streams can be subscribed to over one connection. (E.g. `wss://stream.coins.com:9443/stream?streams=btcusdt@bookTicker/bnbbtc@bookTicker`)
 
 REST API
 
@@ -791,8 +791,8 @@ USER DATA STREAM
 
 ## 2022-12-02
 
-* Added a new market data base URL `https://data.binance.com`.
-* Added a new WebSocket URL `wss://data-stream.binance.com`.
+* Added a new market data base URL `https://data.coins.com`.
+* Added a new WebSocket URL `wss://data-stream.coins.com`.
 
 ---
 
@@ -804,7 +804,7 @@ Scheduled changes to the removal of `!bookTicker` around November 2022.
 * More details of the actual removal date will be announced at a later time.
 * Please use the Individual Book Ticker Streams instead. (`<symbol>@bookTicker`).
 * Multiple `<symbol>@bookTicker` streams can be subscribed to over one connection.
-    * Example: wss://stream.binance.com:9443/stream?streams=btcusdt@bookTicker/bnbbtc@bookTicker
+    * Example: wss://stream.coins.com:9443/stream?streams=btcusdt@bookTicker/bnbbtc@bookTicker
 
 ---
 
@@ -1043,7 +1043,7 @@ USER DATA STREAM
     * This endpoint will have a request weight of 20.
 
 ## 2021-09-14
-* Add a [YAML file](https://github.com/binance/binance-api-swagger) with OpenApi specification on the RESTful API.
+* Add a [YAML file](https://github.com/coins/coins-api-swagger) with OpenApi specification on the RESTful API.
 
 ## 2021-08-12
 * GET `api/v3/myTrades` has a new optional field `orderId`
@@ -1084,13 +1084,13 @@ On **April 28, 2021 00:00 UTC** the weights to the following endpoints will be a
 
 New API clusters have been added in order to improve performance.
 
-Users can access any of the following API clusters, in addition to `api.binance.com`
+Users can access any of the following API clusters, in addition to `api.coins.com`
 
-If there are any performance issues with accessing `api.binance.com` please try any of the following instead:
+If there are any performance issues with accessing `api.coins.com` please try any of the following instead:
 
-* https://api1.binance.com/api/v3/*
-* https://api2.binance.com/api/v3/*
-* https://api3.binance.com/api/v3/*
+* https://api1.coins.com/api/v3/*
+* https://api2.coins.com/api/v3/*
+* https://api3.coins.com/api/v3/*
 
 ## 2020-09-09
 
@@ -1387,9 +1387,9 @@ REST API
 3. If there is no trade on the symbol, there is no average price and market orders cannot be placed.
    On a new symbol with `applyToMarket` enabled on the `MIN_NOTIONAL` filter, market orders cannot be placed until there is at least 1 trade.
 
-4. The current average price can be checked here: `https://api.binance.com/api/v3/avgPrice?symbol=<symbol>`
+4. The current average price can be checked here: `https://api.coins.com/api/v3/avgPrice?symbol=<symbol>`
    For example:
-   https://api.binance.com/api/v3/avgPrice?symbol=BNBUSDT
+   https://api.coins.com/api/v3/avgPrice?symbol=BNBUSDT
 
 USER DATA STREAM
 * `Last quote asset transacted quantity` (as variable `Y`) added to execution reports. Represents the `lastPrice` * `lastQty` (`L` * `l`).

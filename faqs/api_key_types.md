@@ -1,6 +1,6 @@
 # API Key Types
 
-Binance APIs require an API key to access authenticated endpoints for trading, account history, etc.
+coins APIs require an API key to access authenticated endpoints for trading, account history, etc.
 
 We support several types of API keys:
 
@@ -17,8 +17,8 @@ Read [REST API](../rest-api.md#signed-trade-and-user_data-endpoint-security) or 
 ## Ed25519 
 
 Ed25519 keys use asymmetric cryptography.
-You share your public key with Binance and use the private key to sign API requests.
-Binance API uses the public key to verify your signature.
+You share your public key with coins and use the private key to sign API requests.
+coins API uses the public key to verify your signature.
 
 Ed25519 keys provide security comparable to 3072-bit RSA keys, but with considerably smaller key, smaller signature size, and faster signature computation.
 
@@ -40,8 +40,8 @@ E7luAubOlcRxL10iQszvNCff+xJjwJrfajEHj1hOncmsgaSB4NE+A/BbQhCWwit/usNJ32/LeTwDYPoA
 ## HMAC
 
 HMAC keys use symmetric cryptography.
-Binance generates and shares with you a secret key which you use to sign API requests.
-Binance API uses the same shared secret key to verify your signature.
+coins generates and shares with you a secret key which you use to sign API requests.
+coins API uses the same shared secret key to verify your signature.
 
 HMAC signatures are quick to compute and compact. <br>
 However, the shared secret must be shared between multiple parties which is less secure than asymmetric cryptography used by Ed25519 or RSA keys.
@@ -63,8 +63,8 @@ Sample HMAC signature:
 ## RSA
 
 RSA keys use asymmetric cryptography. <br>
-You share your public key with Binance and use the private key to sign API requests. <br>
-Binance API uses the public key to verify your signature.
+You share your public key with coins and use the private key to sign API requests. <br>
+coins API uses the public key to verify your signature.
 
 We support 2048 and 4096 bit RSA keys.
 

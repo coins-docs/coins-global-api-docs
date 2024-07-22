@@ -29,21 +29,21 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Web Socket Streams for Binance (2023-12-04)
+# Web Socket Streams for coins (2023-12-04)
 
 # General WSS information
-* The base endpoint is: **wss://stream.binance.com:9443** or **wss://stream.binance.com:443**
+* The base endpoint is: **wss://stream.coins.com:9443** or **wss://stream.coins.com:443**
 * Streams can be accessed either in a single raw stream or in a combined stream
 * Raw streams are accessed at **/ws/\<streamName\>**
 * Combined streams are accessed at **/stream?streams=\<streamName1\>/\<streamName2\>/\<streamName3\>**
 * Combined stream events are wrapped as follows: **{"stream":"\<streamName\>","data":\<rawPayload\>}**
 * All symbols for streams are **lowercase**
-* A single connection to **stream.binance.com** is only valid for 24 hours; expect to be disconnected at the 24 hour mark
+* A single connection to **stream.coins.com** is only valid for 24 hours; expect to be disconnected at the 24 hour mark
 * Websocket server will send a `ping frame` every 3 minutes. 
   * If the websocket server does not receive a `pong frame` back from the connection within a 10 minute period, the connection will be disconnected. 
   * When you receive a ping, you must send a pong with a copy of ping's payload as soon as possible.
   * Unsolicited `pong frames` are allowed, but will not prevent disconnection. **It is recommended that the payload for these pong frames are empty.**
-* The base endpoint **wss://data-stream.binance.vision** can be subscribed to receive **only** market data messages. <br> User data stream is **NOT** available from this URL.
+* The base endpoint **wss://data-stream.coins.vision** can be subscribed to receive **only** market data messages. <br> User data stream is **NOT** available from this URL.
 
 ## Websocket Limits
 * WebSocket connections have a limit of 5 incoming messages per second. A message is considered:
@@ -538,9 +538,9 @@ Order book price and quantity depth updates used to locally manage an order book
 ```
 
 ## How to manage a local order book correctly
-1. Open a stream to **wss://stream.binance.com:9443/ws/bnbbtc@depth**.
+1. Open a stream to **wss://stream.coins.com:9443/ws/bnbbtc@depth**.
 2. Buffer the events you receive from the stream.
-3. Get a depth snapshot from **https://api.binance.com/api/v3/depth?symbol=BNBBTC&limit=1000** .
+3. Get a depth snapshot from **https://api.coins.com/api/v3/depth?symbol=BNBBTC&limit=1000** .
 4. Drop any event where `u` is <= `lastUpdateId` in the snapshot.
 5. The first processed event should have `U` <= `lastUpdateId`+1 **AND** `u` >= `lastUpdateId`+1.
 6. While listening to the stream, each new event's `U` should be equal to the previous event's `u`+1.

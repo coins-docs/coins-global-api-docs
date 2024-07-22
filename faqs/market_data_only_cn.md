@@ -4,7 +4,7 @@
 
 ## RESTful API
 
-在 RESTful API 上，您可以在 `data-api.binance.vision` 上访问以下接口：
+在 RESTful API 上，您可以在 `data-api.coins.vision` 上访问以下接口：
 
 * [GET /api/v3/aggTrades](../rest-api_CN.md#近期成交归集)
 * [GET /api/v3/avgPrice](../rest-api_CN.md#当前平均价格)
@@ -23,18 +23,18 @@
 请求示例:
 
 ```
-curl -sX GET "https://data-api.binance.vision/api/v3/exchangeInfo?symbol=BTCUSDT" 
+curl -sX GET "https://data-api.coins.vision/api/v3/exchangeInfo?symbol=BTCUSDT" 
 ```
 
 ## Websocket Streams
 
-也可以通过 Websocket 市场数据的 URL `data-stream.binance.vision` 提取公共市场数据。
+也可以通过 Websocket 市场数据的 URL `data-stream.coins.vision` 提取公共市场数据。
 此域名所提供的 stream 与 [Websocket Market Streams_CN](../web-socket-streams_CN.md) 文档中的相同。
 请注意账户信息推送**无法**从此 URL 获得。
 
 请求示例:
 
 ```
-wss://data-stream.binance.vision:443/ws/btcusdt@kline_1m
+wss://data-stream.coins.vision:443/ws/btcusdt@kline_1m
 ```
 

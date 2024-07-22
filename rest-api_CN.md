@@ -2,17 +2,17 @@
 
 ## API 基本信息
 * 本篇列出接口的 base URL 有:
-  * **https://api.binance.com**
-  * **https://api-gcp.binance.com**
-  * **https://api1.binance.com**
-  * **https://api2.binance.com**
-  * **https://api3.binance.com**
-  * **https://api4.binance.com**
+  * **https://api.coins.com**
+  * **https://api-gcp.coins.com**
+  * **https://api1.coins.com**
+  * **https://api2.coins.com**
+  * **https://api3.coins.com**
+  * **https://api4.coins.com**
 * 上述列表的最后4个接口 (`api1`-`api4`) 可能会提供更好的性能，但其稳定性略为逊色。因此，请务必使用最适合的URL。
 * 所有接口的响应都是 JSON 格式。
 * 响应中如有数组，数组元素以时间**升序**排列，越早的数据越提前。
 * 所有时间、时间戳均为UNIX时间，单位为**毫秒**。
-* 对于仅发送公开市场数据的 API，您可以使用接口的 base URL https://data-api.binance.vision 。请参考 [Market Data Only_CN](./faqs/market_data_only_cn.md) 页面。
+* 对于仅发送公开市场数据的 API，您可以使用接口的 base URL https://data-api.coins.vision 。请参考 [Market Data Only_CN](./faqs/market_data_only_cn.md) 页面。
 
 ## HTTP 返回代码
 
@@ -21,7 +21,7 @@
 * HTTP `409` 错误码表示重新下单(cancelReplace)的请求部分成功。(比如取消订单失败，但是下单成功了)
 * HTTP `429` 错误码表示警告访问频次超限，即将被封IP。
 * HTTP `418` 表示收到429后继续访问，于是被封了。
-* HTTP `5XX` 错误码用于指示Binance服务侧的问题。
+* HTTP `5XX` 错误码用于指示coins服务侧的问题。
 
 
 ## 接口错误代码
@@ -118,7 +118,7 @@ MARKET_DATA | 需要有效的API-KEY
   ```
 
 **关于交易时效性**
-互联网状况并不100%可靠，不可完全依赖,因此你的程序本地到币安服务器的时延会有抖动.
+互联网状况并不100%可靠，不可完全依赖,因此你的程序本地到coins服务器的时延会有抖动.
 这是我们设置`recvWindow`的目的所在，如果你从事高频交易，对交易时效性有较高的要求，可以灵活设置`recvWindow`以达到你的要求。
 **不推荐使用5秒以上的recvWindow。最大值不能超过60秒！**
 
@@ -161,7 +161,7 @@ Key | Value
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "X-COINS-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.binance.com/api/v3/order?symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71'
+    [linux]$ curl -H "X-COINS-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.coins.com/api/v3/order?symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71'
     ```
 
 ## 示例 2: 所有参数通过 request body 发送
@@ -178,7 +178,7 @@ Key | Value
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "X-COINS-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.binance.com/api/v3/order' -d 'symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71'
+    [linux]$ curl -H "X-COINS-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.coins.com/api/v3/order' -d 'symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71'
     ```
 
 ## 示例 3: 混合使用 query string 与 request body
@@ -196,7 +196,7 @@ Key | Value
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "X-COINS-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.binance.com/api/v3/order?symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC' -d 'quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=0fd168b8ddb4876a0358a8d14d0c9f3da0e9b20c5d52b2a00fcf7d1c602f9a77'
+    [linux]$ curl -H "X-COINS-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.coins.com/api/v3/order?symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC' -d 'quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=0fd168b8ddb4876a0358a8d14d0c9f3da0e9b20c5d52b2a00fcf7d1c602f9a77'
     ```
 
 Note that the signature is different in example 3.
@@ -258,7 +258,7 @@ HZ8HOjiJ1s%2FigS9JA%2Bn7%2B7Ti%2FihtkRF5BIWcPIEluJP6tlbFM%2FBf44LfZka%2FiemtahZA
 5. curl 命令:
 
 ```console
-curl -H "X-COINS-APIKEY: CAvIjXy3F44yW6Pou5k8Dy1swsYDWJZLeoK2r8G4cFDnE9nosRppc2eKc1T8TRTQ" -X POST 'https://api.binance.com/api/v3/order?symbol=BTCUSDT&side=SELL&type=LIMIT&timeInForce=GTC&quantity=1&price=0.2&timestamp=1668481559918&recvWindow=5000&signature=HZ8HOjiJ1s%2FigS9JA%2Bn7%2B7Ti%2FihtkRF5BIWcPIEluJP6tlbFM%2FBf44LfZka%2FiemtahZAZzcO9TnI5uaXh3%2B%2BlrqtNonCwp6%2F245UFWkiW1elpgtVAmJPbogcAv6rSlokztAfWk296ZJXzRDYAtzGH0gq7CgSJKfH%2BXxaCmR0WcvlKjNQnp12%2FeKXJYO4tDap8UCBLuyxDnR7oJKLHQHJLP0r0EAVOOSIbrFang%2F1WOq%2BJaq4Efc4XpnTgnwlBbWTmhWDR1pvS9iVEzcSYLHT%2FfNnMRxFc7u%2Bj3qI%2F%2F5yuGuu14KR0MuQKKCSpViieD%2BfIti46sxPTsjSemoUKp0oXA%3D%3D'
+curl -H "X-COINS-APIKEY: CAvIjXy3F44yW6Pou5k8Dy1swsYDWJZLeoK2r8G4cFDnE9nosRppc2eKc1T8TRTQ" -X POST 'https://api.coins.com/api/v3/order?symbol=BTCUSDT&side=SELL&type=LIMIT&timeInForce=GTC&quantity=1&price=0.2&timestamp=1668481559918&recvWindow=5000&signature=HZ8HOjiJ1s%2FigS9JA%2Bn7%2B7Ti%2FihtkRF5BIWcPIEluJP6tlbFM%2FBf44LfZka%2FiemtahZAZzcO9TnI5uaXh3%2B%2BlrqtNonCwp6%2F245UFWkiW1elpgtVAmJPbogcAv6rSlokztAfWk296ZJXzRDYAtzGH0gq7CgSJKfH%2BXxaCmR0WcvlKjNQnp12%2FeKXJYO4tDap8UCBLuyxDnR7oJKLHQHJLP0r0EAVOOSIbrFang%2F1WOq%2BJaq4Efc4XpnTgnwlBbWTmhWDR1pvS9iVEzcSYLHT%2FfNnMRxFc7u%2Bj3qI%2F%2F5yuGuu14KR0MuQKKCSpViieD%2BfIti46sxPTsjSemoUKp0oXA%3D%3D'
 ```
 
 下面的示例 Bash 脚本执行上述类似的步骤：
@@ -280,7 +280,7 @@ signature=$(echo -n "$api_params_with_timestamp" \
             | openssl enc -base64 -A)
 # 发送请求：
 curl -H "X-COINS-APIKEY: $API_KEY" -X "$API_METHOD" \
-    "https://api.binance.com/$API_CALL?$api_params_with_timestamp" \
+    "https://api.coins.com/$API_CALL?$api_params_with_timestamp" \
     --data-urlencode "signature=$signature"
 ```
 
@@ -335,7 +335,7 @@ headers = {
     'X-COINS-APIKEY': API_KEY,
 }
 response = requests.post(
-    'https://api.binance.com/api/v3/order',
+    'https://api.coins.com/api/v3/order',
     headers=headers,
     data=params,
 )
@@ -589,10 +589,10 @@ GET /api/v3/exchangeInfo
 
 |用法|举例|
 ----- | ----|
-|不需要交易对|curl -X GET "https://api.binance.com/api/v3/exchangeInfo"|
-|单个交易对|curl -X GET "https://api.binance.com/api/v3/exchangeInfo?symbol=BNBBTC"|
-|多个交易对| curl -X GET "https://api.binance.com/api/v3/exchangeInfo?symbols=%5B%22BNBBTC%22,%22BTCUSDT%22%5D" <br/> 或者 <br/> curl -g -X GET 'https://api.binance.com/api/v3/exchangeInfo?symbols=["BTCUSDT","BNBBTC"]'|
-| 交易权限 | curl -X GET "https://api.binance.com/api/v3/exchangeInfo?permissions=SPOT" <br/> 或者 <br/> curl -X GET "https://api.binance.com/api/v3/exchangeInfo?permissions=%5B%22MARGIN%22%2C%22LEVERAGED%22%5D" <br/> 或者 <br/> curl -g -X GET 'https://api.binance.com/api/v3/exchangeInfo?permissions=["MARGIN","LEVERAGED"]'|
+|不需要交易对|curl -X GET "https://api.coins.com/api/v3/exchangeInfo"|
+|单个交易对|curl -X GET "https://api.coins.com/api/v3/exchangeInfo?symbol=BNBBTC"|
+|多个交易对| curl -X GET "https://api.coins.com/api/v3/exchangeInfo?symbols=%5B%22BNBBTC%22,%22BTCUSDT%22%5D" <br/> 或者 <br/> curl -g -X GET 'https://api.coins.com/api/v3/exchangeInfo?symbols=["BTCUSDT","BNBBTC"]'|
+| 交易权限 | curl -X GET "https://api.coins.com/api/v3/exchangeInfo?permissions=SPOT" <br/> 或者 <br/> curl -X GET "https://api.coins.com/api/v3/exchangeInfo?permissions=%5B%22MARGIN%22%2C%22LEVERAGED%22%5D" <br/> 或者 <br/> curl -g -X GET 'https://api.coins.com/api/v3/exchangeInfo?permissions=["MARGIN","LEVERAGED"]'|
 
 **备注**:
 * 如果参数 `symbol` 或者 `symbols` 提供的交易对不存在, 系统会返回错误并提示交易对不正确.

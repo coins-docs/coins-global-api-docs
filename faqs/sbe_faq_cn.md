@@ -21,7 +21,7 @@ SBE 是一种用于实现低延迟的序列化格式。
 样本请求(REST):
 
 ```
-curl -sX GET -H "Accept: application/sbe" -H "X-COINS-SBE: 1:0" 'https://api.binance.com/api/v3/exchangeInfo?symbol=BTCUSDT'
+curl -sX GET -H "Accept: application/sbe" -H "X-COINS-SBE: 1:0" 'https://api.coins.com/api/v3/exchangeInfo?symbol=BTCUSDT'
 ```
 
 **注意：**
@@ -54,7 +54,7 @@ request=$( jq -n \
         --argjson params "$params" \
         '{id: $id, method: $method, params: $params}' )
 
-response=$(echo $request | websocat -n1 'wss://ws-api.binance.com:443/ws-api/v3?responseFormat=sbe&sbeSchemaId=1&sbeSchemaVersion=0')
+response=$(echo $request | websocat -n1 'wss://ws-api.coins.com:443/ws-api/v3?responseFormat=sbe&sbeSchemaId=1&sbeSchemaVersion=0')
 ```
 
 **注意：**
@@ -75,7 +75,7 @@ response=$(echo $request | websocat -n1 'wss://ws-api.binance.com:443/ws-api/v3?
 
 ## SBE 模式
 
-* 将被使用的模式 (schema) 会被保存在此仓库 (repository) 中，[请看这里](https://github.com/binance/binance-spot-api-docs/tree/master/sbe/schemas)。
+* 将被使用的模式 (schema) 会被保存在此仓库 (repository) 中，[请看这里](https://github.com/coins/coins-spot-api-docs/tree/master/sbe/schemas)。
 * 对于模式的任何更新将会被记录在[更改日志](../CHANGELOG_CN.md)中。
 
 **关于对旧版本的支持：**
@@ -99,7 +99,7 @@ response=$(echo $request | websocat -n1 'wss://ws-api.binance.com:443/ws-api/v3?
 * HTTP将在针对 `X-COINS-SBE header` 中已被废止的 `SBE` 模式版本请求的响应中包含一个 `X-COINS-SBE-DEPRECATED` 报文头 。
 * 对于WebSocket响应，如果在其连接URL中指定了已弃用的`sbeSchemaId`和`sbeSchemaVersion`，`sbeSchemaIdVersionDeprecated`字段将被设置为`true`。
 * 指定已废止的`<ID>:<VERSION>`（REST API）或`sbeSchemaId`和`sbeSchemaVersion` （WebSocket API）的请求将会返回HTTP 400错误。
-* 关于模式生命周期的 `JSON` 文件将被保存在此仓库中，[请看这里](https://github.com/binance/binance-spot-api-docs/tree/master/sbe/schemas)。这个文件包含了关于实时交易所和现货测试网的最新、被废止和被停用模式的具体发生日期。<br> 以下是一个基于上述假设时间线的 `JSON` 示例：
+* 关于模式生命周期的 `JSON` 文件将被保存在此仓库中，[请看这里](https://github.com/coins/coins-spot-api-docs/tree/master/sbe/schemas)。这个文件包含了关于实时交易所和现货测试网的最新、被废止和被停用模式的具体发生日期。<br> 以下是一个基于上述假设时间线的 `JSON` 示例：
 
 ```json
 {
@@ -140,14 +140,14 @@ response=$(echo $request | websocat -n1 'wss://ws-api.binance.com:443/ws-api/v3?
 
 1. 下载模式：
     * [`spot_prod_latest.xml`](../sbe/schemas/spot_prod_latest.xml) 适用于实时交易所。
-    * [`spot_testnet_latest.xml`](../sbe/schemas/spot_testnet_latest.xml) 适用于 [现货测试网](https://testnet.binance.vision)。
+    * [`spot_testnet_latest.xml`](../sbe/schemas/spot_testnet_latest.xml) 适用于 [现货测试网](https://testnet.coins.vision)。
 2. 克隆并构建 [`simple-binary-encoding`](https://github.com/real-logic/simple-binary-encoding)：
 ```shell
  $ git clone https://github.com/real-logic/simple-binary-encoding.git
  $ cd simple-binary-encoding
  $ ./gradlew
 ```
-3. 运行 `SbeTool` 代码生成器。（请参考这里分别使用[Java](https://github.com/binance/binance-sbe-java-sample-app), [C++](https://github.com/binance/binance-sbe-cpp-sample-app) 和 [Rust](https://github.com/binance/binance-sbe-rust-sample-app) 解码交易所信息 payload 的样本。）
+3. 运行 `SbeTool` 代码生成器。（请参考这里分别使用[Java](https://github.com/coins/coins-sbe-java-sample-app), [C++](https://github.com/coins/coins-sbe-cpp-sample-app) 和 [Rust](https://github.com/coins/coins-sbe-rust-sample-app) 解码交易所信息 payload 的样本。）
 
 ### 十进制字段编码
 

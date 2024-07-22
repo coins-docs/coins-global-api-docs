@@ -1,6 +1,6 @@
-# CHANGELOG for Binance SPOT Testnet (2024-05-02)
+# CHANGELOG for coins SPOT Testnet (2024-05-02)
 
-**Note:** All features here will only apply to the [SPOT Testnet](https://testnet.binance.vision/). 
+**Note:** All features here will only apply to the [SPOT Testnet](https://testnet.coins.vision/). 
 This is not always synced with the live exchange. 
 
 ## 2024-05-02
@@ -44,7 +44,7 @@ WebSocket API
 
 SBE
 
-* A new schema 2:0 [spot_2_0.xml](https://github.com/binance/binance-spot-api-docs/blob/master/sbe/schemas/spot_2_0.xml) has been released for SPOT Testnet. The current schema, 1:0 [spot_1_0.xml](https://github.com/binance/binance-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml), will thus be deprecated and retired from the Testnet APIs in 6 months as per our schema deprecation policy.
+* A new schema 2:0 [spot_2_0.xml](https://github.com/coins/coins-spot-api-docs/blob/master/sbe/schemas/spot_2_0.xml) has been released for SPOT Testnet. The current schema, 1:0 [spot_1_0.xml](https://github.com/coins/coins-spot-api-docs/blob/becd4d44a09d94821d2dc761ba9197aae8b495c3/sbe/schemas/spot_1_0.xml), will thus be deprecated and retired from the Testnet APIs in 6 months as per our schema deprecation policy.
 * When using schema 1:0 on REST API or WebSocket API, group "permissions" in message "ExchangeInfoResponse" will always be empty. Upgrade to schema 2:0 to find permission information in group "permissionSets". See General changes above for more details.
 * Responses for deprecated OCO requests are supported by both schema 1:0 and 2:0
 

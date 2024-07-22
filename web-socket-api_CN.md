@@ -1,10 +1,10 @@
-# Binance 的公共 WebSocket API (2024-04-02)
+# coins 的公共 WebSocket API (2024-04-02)
 
 ## API 基本信息
 
-* 本篇所列出的 wss 接口的 base URL：**`wss://ws-api.binance.com:443/ws-api/v3`**
+* 本篇所列出的 wss 接口的 base URL：**`wss://ws-api.coins.com:443/ws-api/v3`**
   * 如果使用标准443端口时遇到问题，可以使用替代端口9443。
-  * [现货测试网](https://testnet.binance.vision)的 base URL 是 `wss://testnet.binance.vision/ws-api/v3`。
+  * [现货测试网](https://testnet.coins.vision)的 base URL 是 `wss://testnet.coins.vision/ws-api/v3`。
 * 每个到 base URL 的链接有效期不超过24小时，请妥善处理断线重连。
 * Websocket 服务器每3分钟发送Ping消息。
     * 如果Websocket服务器在10分钟之内没有收到Pong消息应答，连接会被断开。
@@ -201,13 +201,13 @@
   * `409` – 错误码表示请求有一部分成功，一部分失败。请参阅 `error` 了解更多详细。
   * `418` – 表示收到 429 后继续访问，于是被封了。
   * `429` – 错误码表示警告访问频次超限，即将被封IP。
-* `5XX` 错误码用于指示Binance服务侧的问题。
+* `5XX` 错误码用于指示coins服务侧的问题。
   * **重要**：如果响应包含 5xx 状态码，**并不**一定意思请求失败。
     执行状态为 _unknown_，请求可能实际成功。
     请使用 query 函数确认状态。
     建议建立一个新 WebSocket 连接用于确认状态。
 
-有关错误代码和消息的列表，请参阅 [Binance 的错误代码](errors_CN.md)。
+有关错误代码和消息的列表，请参阅 [coins 的错误代码](errors_CN.md)。
 
 # 速率限制
 
@@ -304,7 +304,7 @@ API 有多种频率限制间隔。
   如果您希望在默认情况下从所有响应中省略 `rateLimits`，可以在 query string 中使用 `returnRateLimits` 参数：
 
   ```
-  wss://ws-api.binance.com:443/ws-api/v3?returnRateLimits=false
+  wss://ws-api.coins.com:443/ws-api/v3?returnRateLimits=false
   ```
 
   这将使通过此连接发出的所有请求的行为就像您已传了 `"returnRateLimits"：false` 一样。
@@ -449,9 +449,9 @@ API 有多种频率限制间隔。
 `MARKET_DATA` | required |           | 历史市场数据访问
 
 * 函数鉴权需要指定和验证有效的 API key。
-  * API key 可以在币安账户的 [API 管理](https://www.binance.com/zh-CN/support/faq/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAapi-360002502072) 页面创建。
+  * API key 可以在coins账户的 [API 管理](https://www.coins.com/zh-CN/support/faq/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAapi-360002502072) 页面创建。
   * **API key和密钥都是大小写敏感的。** 切勿与任何人共享它们。
-    如果您发现您的账户有异常活动，请立即撤销所有keys并联系币安客服。
+    如果您发现您的账户有异常活动，请立即撤销所有keys并联系coins客服。
 * API key 可以配置为仅允许访问某些类型的函数鉴权。
   * 例如，可以拥有一个 API key 有 `TRADE` 的权限进行交易，同时使用另一个 API key 有 `USER_DATA` 的权限来监控您的订单状态。
   * 默认情况下，API key 不能 `交易`。您需要先在 API 管理中开通交易权限。
@@ -480,7 +480,7 @@ API 有多种频率限制间隔。
   }
   ```
 
-**关于交易时效性** 互联网状况并不完全稳定可靠，因此你的程序本地到币安服务器的时延会有抖动, 这是我们设置 `recvWindow` 的目所在。如果你从事高频交易，对交易时效性有较高的要求，可以灵活设置 `recvWindow` 以达到你的要求。
+**关于交易时效性** 互联网状况并不完全稳定可靠，因此你的程序本地到coins服务器的时延会有抖动, 这是我们设置 `recvWindow` 的目所在。如果你从事高频交易，对交易时效性有较高的要求，可以灵活设置 `recvWindow` 以达到你的要求。
 
 **建议使用5000毫秒以下的 `recvWindow`！**
 
@@ -740,7 +740,7 @@ request = {
     'method': 'order.place',	
     'params': params
 }
-ws = create_connection('wss://ws-api.binance.com:443/ws-api/v3')	
+ws = create_connection('wss://ws-api.coins.com:443/ws-api/v3')	
 ws.send(json.dumps(request))	
 result =  ws.recv()	
 ws.close()	
@@ -1095,7 +1095,7 @@ NONE
       }
     ],
     // 交易所级别过滤器在 "过滤器" 页面上进行了说明：
-    // https://github.com/binance/binance-spot-api-docs/blob/master/filters_CN.md
+    // https://github.com/coins/coins-spot-api-docs/blob/master/filters_CN.md
     // 全部交易过滤器是可选的。
     "exchangeFilters": [],
     "symbols": [
@@ -1124,7 +1124,7 @@ NONE
         "isSpotTradingAllowed": true,
         "isMarginTradingAllowed": true,
         // 交易对过滤器在"过滤器"页面上进行了说明：
-        // https://github.com/binance/binance-spot-api-docs/blob/master/filters_CN.md
+        // https://github.com/coins/coins-spot-api-docs/blob/master/filters_CN.md
         // 全部交易对过滤器是可选的。
         "filters": [
           {
@@ -1434,7 +1434,7 @@ NONE
 
 * [`<symbol>@aggTrade`](web-socket-streams_CN.md#归集交易)
 
-如果需要历史总交易数据，可以使用 [data.binance.vision](https://github.com/binance/binance-public-data/#aggtrades)。
+如果需要历史总交易数据，可以使用 [data.coins.vision](https://github.com/coins/coins-public-data/#aggtrades)。
 
 **权重:**
 2
@@ -1516,7 +1516,7 @@ Klines 由其开盘时间和收盘时间为唯一标识。
 
 * [`<symbol>@kline_<interval>`](web-socket-streams_CN.md#K线)
 
-如果需要历史K线数据，可以使用 [data.binance.vision](https://github.com/binance/binance-public-data/#klines)。
+如果需要历史K线数据，可以使用 [data.coins.vision](https://github.com/coins/coins-public-data/#klines)。
 
 **权重:**
 2
@@ -6094,7 +6094,7 @@ timestamp           | LONG   | YES          |
 
 以下请求管理 [Websocket 帐户信息](user-data-stream_CN.md) 订阅。
 
-**注意：** 账户信息只能在连接到用户数据流服务器的连接上获取, 其服务器URL是 `wss://stream.binance.com:443`.
+**注意：** 账户信息只能在连接到用户数据流服务器的连接上获取, 其服务器URL是 `wss://stream.coins.com:443`.
 
 ### 开始用户数据流 (USER_STREAM)
 
